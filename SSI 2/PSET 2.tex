@@ -1,0 +1,238 @@
+\documentclass[11pt]{article}
+
+% NOTE: Add in the relevant information to the commands below; or, if you'll be using the same information frequently, add these commands at the top of paolo-pset.tex file. 
+\newcommand{\name}{Agustin Esteva}
+\newcommand{\email}{aesteva@uchicago.edu}
+\newcommand{\classnum}{13210}
+\newcommand{\subject}{SSI: Formal Theory}
+\newcommand{\instructors}{Scott Gehlbach}
+\newcommand{\assignment}{Problem Set 2}
+\newcommand{\semester}{Winter 2024}
+\newcommand{\duedate}{2024-02-03}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+\newcommand{\Var}{\text{Var}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+% NOTE: Defining collaborators is optional; to not list collaborators, comment out the line below.
+%\newcommand{\collaborators}{Alyssa P. Hacker (\texttt{aphacker}), Ben Bitdiddle (\texttt{bitdiddle})}
+
+\input{paolo-pset.tex}
+
+% NOTE: To compile a version of this pset without problems, solutions, or reflections, uncomment the relevant line below.
+
+%\excludeversion{problem}
+%\excludeversion{solution}
+%\excludeversion{reflection}
+
+\begin{document}	
+	
+	% Use the \psetheader command at the beginning of a pset. 
+	\psetheader
+\section*{Problem 1}
+\begin{problem}
+Consider a variant of the anarchy game in Ellingsen discussed in class. There are two players (i = 1, 2) who choose actions \( y_i \in [0, 1] \) representing weapons, with the remaining portion \( x_i = 1 - y_i \) representing food. The players' preferences are over their consumption \( c_i \), which is given by:
+
+
+
+\[ 
+c_1 = \begin{cases} 
+x_1 + x_2 & \text{if } y_1 + \alpha \geq y_2 \\
+0 & \text{otherwise}
+\end{cases} 
+\]
+
+
+
+
+
+\[ 
+c_2 = \begin{cases} 
+x_1 + x_2 & \text{if } y_2 > y_1 + \alpha \\
+0 & \text{otherwise}
+\end{cases} 
+\]
+
+
+
+where \( \alpha \in (0, 1) \) gives player 1 an advantage in combat.
+\begin{enumerate}
+    \item Show that there is a Nash equilibrium of this game in which \( (y_1, y_2) = (1 - \alpha, 1) \).
+    \begin{solution}
+        Let $(y_1^\ast, y_2^\ast) = (1-\alpha, 1)$ represent our candidate Nash Equilibrium. Thus, we have that since $y_1^*+ \alpha = 1 = y_2^*,$ then
+        \[u_1(y_1^\ast, y_2^\ast) = c_1(y_1^\ast, y_2^\ast) = x_1 + x_2 = \alpha + 0\]
+        
+        Consider some other action profile, $(y_1, y_2^*).$ We have two options, suppose $y_1 > 1-\alpha,$ in which case we have that 
+        \[u_1(y_1, 1) = 1- y_1 < 1-(1-\alpha) = \alpha.\]
+        Our only alternative profile for player $1$ is where $y_1 < 1 - \alpha.$ Thus, consider that 
+        \[u_1(y_1 =1, y_2^*) = c_1(y_1, y_2^*) =  0, \qquad (y_1 + \alpha <1)\] Thus, player $1$ deviating from this $(y_1^*)$ is not profitable. 
+
+        Consider now $(y_1^*, y_2),$ where $y_2 = c$ and $c<1$ (the only alternative profile to $y_2 = 1$,) then 
+        \[u_2(y_1^*, y_2) = 0 \qquad (c \not> 1 ),\] and so deviating is not more profitable that $y_2^*.$
+
+        Thus, we have that for $i = 1,2$
+        \[u_i(y^*) \geq u_i(y_i, y_{-i}^*),\] and thus $(1-\alpha, 1)$ is Nash equilibrium.
+    \end{solution}
+    \item 
+    Is this the unique Nash equilibrium? If so, explain why. If not, provide at least one example of another equilibrium.
+    \begin{solution}
+          Yes, it is unique. Suppose not, then there exists some $(y_1, y_2) \neq (1-\alpha, 1).$ If $y_1 < y_2-\alpha,$ then $c_1 = 0.$ However, player $1$ can just deviate such that $y_1 = y_2 - \alpha$ and get $c_1 >0.$ Similarly, if $y_1 > y_2 - \alpha,$ then $y_1$ can deviate to some $y_1 -\epsilon >y_2 - \alpha.$ Thus, we must have that $y_1 = y_2 - \alpha.$ and so $c_1 >0$ and $c_2 = 0.$ However, then player $2$ stands to profit by increasing production of weapons such that $y_1 < y_2 - \alpha,$ which we have already seen is not an equilibrium.
+    \end{solution}
+
+    \item 
+    What is the weakest punishment that a (nonstrategic) state could impose on any actor \( i \) who chooses \( y_i > 0 \) that would ensure that \( (y_1, y_2) = (0, 0) \) is a Nash equilibrium?
+    \begin{solution}
+        Suppose the state imposes a punishment $\lambda_i$ on $y_i$ such that 
+        \[u_i = c_i - \lambda_i y_i .\] Note that we have that 
+        \[u_1(0,0) = 2, \qquad u_2(0,0) = 0.\]
+        
+        For any action profile $(y_1, y_2),$ we have that if $y_1 \geq y_2,$ then $y_1 + \alpha \geq y_2$ and so 
+        \[c_1 = x_1 + x_2 = (1 - y_1) + (1-y_2) = 2 - (y_1 + y_2)\] and so 
+        \[u_1(y_1, y_2 = 0) = 2-(y_1 + y_2) - \lambda y_1 = 2-(y_1  + y_2) - \lambda y_1 y_1 = 2-y_1(1 + \lambda y_1) <2,\] and so $u_1(y_1, 0) \leq u_1(0,0)$ Thus, player $1$ does not stand to profit from deviating from $(y_1, y_2) = (0,0)$ for any $\lambda
+        y_1.$
+
+        Now consider player $2,$ and suppose he deviates to some $y_2 >0.$ If $y_2 \leq \alpha,$ then his utility is obviously still $0,$ but if $y_2 >\alpha,$ then 
+        \[u_2(0,y_2) = x_1 +x_2 - \lambda_2  y_2 = 1 + (1-y_2) - \lambda_2 y_2 = 2 - y_2 - \lambda_2 y_2 = 2-y_2(1 + \lambda_2) < 0\] for $\lambda_2 \leq \frac{2}{y_2} - 1,$ thus, $\lambda_i = \frac{2}{\alpha} - 1$ is the weakest punishment such that $(0,0)$ is the Nash equilibrium. Note that this punishment depends on how much weapons player $2$ produces, which is different from what we did in class. In class, we did it using 
+    \[u_i - c_i - \lambda \mathbf{1}_{y_i>0},\] which would result in the same thing for player 1 (and by that I mean us not caring about them), and so for player $2,$ if he/she/they\footnote{I am not conforming to the follow executive order \url{https://www.nytimes.com/2025/01/31/us/politics/trump-pronouns.html}, sorry!} deviates to $y_2 = \alpha + \epsilon,$ then we have that 
+    \[u_2(0,y_2) = 1 +(1-y_2) - \lambda  = 1 + (1 - (\alpha + \epsilon)) - \lambda = 2-\alpha -\epsilon -\lambda <0\] when $2 -\alpha - \epsilon < \lambda,$ and so $\lambda = 2-\alpha$ is smallest punishment available.
+    \end{solution}
+\end{enumerate}
+
+\newpage
+\section*{Problem 2}
+\begin{problem}
+Each player extracts $c_i$ $i = 1,2$ from the first period. The amount not extract, $y - c_1 - c_2,$ renews into $\sqrt{y-c_1 - c_2}$ for the second period. In the second period, the total is divided evenly between both players. 
+\begin{enumerate}
+    \item Write down the best response problem for player 1.
+    \begin{solution}
+        We have the utility function of player $1$ is given by 
+        \[u_1(c_1, c_2) = \log(c_1) + \log(\frac{\sqrt{y- c_1 -c_2}}{2}),\] thus, the best response problem is to maximize this utility with respect to the player's own consumption, that is, to solve for 
+        \[\arg\max_{c_1}\log(c_1) + \log(\frac{\sqrt{y- c_1 -c_2}}{2}) = \arg\max_{c_2}\log(c_1) + \log(\sqrt{y - c_1 - c_2}) - \log(2)\]
+    \end{solution}
+    \item 
+    Show that the best response function is given by
+
+
+\[
+R_1(c_2) = \frac{2(y - c_2)}{3}
+\]
+
+\begin{solution}
+        Solving the above problem requires us to find the critical points and setting equal to $0:$
+    \[\frac{\partial}{\partial c_1}\log(c_1) + \log(\sqrt{y - c_1 - c_2}) - \log(2) = \frac{1}{c_1} + \frac{1}{\sqrt{y-c_1-c_2}}\frac{-1}{2\sqrt{y - c_1 -c_2}} = \frac{1}{c_1} - \frac{1}{2(y -c_1 -c_2)}\] Setting equal to $0:$
+    \[\frac{1}{c_1} - \frac{1}{2(y -c_1 -c_2)} = 0 \iff c_1 = 2y - 2c_1 -2c_2 \iff 3c_1 = 2(y-c_2) \iff c_1 = \frac{2}{3}(y-c_1),\] thus, 
+    \[R_1(c_2) = \frac{2(y - c_2)}{3}\]
+
+\end{solution}
+\item 
+Compute the Nash Equilibrium.
+\begin{solution}
+    By symmetry, we have that 
+    \[R_2(c_1) = \frac{2(y - c_1)}{3},\] and thus solving for when $R_2(c_1) = R_1(c_1),$ that is solving the system 
+    \[c_1 = \frac{2}{3}(y-c_2), \qquad c_2 = \frac{2}{3}(y-c_1),\] by plugging in the first into the second:
+    \[c_2 = \frac{2}{3}(y-\frac{2}{3}(y-c_2)) = \frac{2}{9}y + \frac{4}{9}c_2 \iff \frac{5}{9}c_2 = \frac{2}{9}y \iff c_2 = \frac{2}{5}y.\] Again, by symmetry, we must have that $c_1 = \frac{2}{5}y.$ Thus, our Nash equilibrium is when $(c_1, c_2) = (\frac{2}{5}y, \frac{2}{5}y).$ 
+\end{solution}
+\end{enumerate}
+\begin{reflection}
+Comparing our results, we see that renewing resources over time increases the amount people are going to take in the first period, but it it still not socially optimal.
+\end{reflection}
+
+
+
+\end{problem}
+
+\end{problem}
+
+
+
+\end{document}

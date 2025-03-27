@@ -1,0 +1,224 @@
+\documentclass[11pt]{article}
+
+\usepackage{float}
+% NOTE: Add in the relevant information to the commands below; or, if you'll be using the same information frequently, add these commands at the top of paolo-pset.tex file. 
+\newcommand{\name}{Agustin Esteva}
+\newcommand{\email}{aesteva@uchicago.edu}
+\newcommand{\classnum}{13210}
+\newcommand{\subject}{SSI: Formal Theory}
+\newcommand{\instructors}{Scott Gehlbach}
+\newcommand{\assignment}{Problem Set 5}
+\newcommand{\semester}{Winter 2024}
+\newcommand{\duedate}{\today}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+\newcommand{\Var}{\text{Var}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+% NOTE: Defining collaborators is optional; to not list collaborators, comment out the line below.
+%\newcommand{\collaborators}{Alyssa P. Hacker (\texttt{aphacker}), Ben Bitdiddle (\texttt{bitdiddle})}
+
+\input{paolo-pset.tex}
+
+% NOTE: To compile a version of this pset without problems, solutions, or reflections, uncomment the relevant line below.
+
+%\excludeversion{problem}
+%\excludeversion{solution}
+%\excludeversion{reflection}
+
+\begin{document}	
+	
+	% Use the \psetheader command at the beginning of a pset. 
+	\psetheader
+\section*{Problem 1}
+\begin{problem}
+ Consider the repeated game in which the following stage game is played twice:   
+\end{problem}
+
+
+
+
+\[
+\begin{array}{c|ccc}
+ & \text{In} & \text{Side} & \text{Out} \\
+\hline
+\text{Up} & 7,7 & 0,0 & 1,8 \\
+\text{Side} & 0,0 & 5,4 & 0,0 \\
+\text{Down} & 8,1 & 0,0 & 3,2 \\
+\end{array}
+\]
+
+
+
+Can the payoff $(7,7)$ be achieved in the first period of a SPNE for some $\delta \in (0,1)$? If so, provide strategies that do so. If not, explain why not.
+
+\begin{solution}
+    In the second round, the two players are playing the stage game in the table above, which has Nash Equilibria payoffs of $(5,4)$ and $(3,2).$ In order for $(7,7)$ to be achieved in the first round, we consider the following strategy:
+    \[s_1 = 
+    \begin{cases}
+        U, \qquad t = 1\\
+        S, \qquad \text{if $(U,I)$ at $t = 1$}\\
+        D, \qquad \text{else}
+    \end{cases}, \qquad s_2 = \begin{cases}
+        I, \qquad t = 1\\
+        S, \qquad \text{if $(U,I)$ at $t = 1$}\\
+        O, \qquad \text{else}
+    \end{cases}\]
+    We see that for player $1,$ the temptation is $8-7$ and the punishment is $(5-3)\delta,$ one can check that player $2$ also has the same temptations/punishments. Thus, in order for (U,I) to be chosen, we must have that 
+    \[2\delta \geq 1 \iff \delta \geq \frac{1}{2}.\] 
+
+    Checking the answer with the one deviation property, we have that if (U,I) in the first period, then 
+    \[u_1 = 7 + 5\delta, \quad u_2 = 7 + 4\delta\] If player $1$ deviates to going down then holding player two fixed, we see that 
+    \[u_1' = 8 + 3\delta\] and similarly:
+    \[u_2' = 8 + 2\delta.\]
+    Thus, we must have that 
+    \[u_1 \geq u_1' \iff 7 + 5\delta \geq 8 + 3\delta \iff 2\delta \geq 1 \iff \delta\geq \frac{1}{2}\]
+    \[u_2 \geq u_2' \iff 7 + 4\delta \geq 8 + 2\delta \iff \delta \geq \frac{1}{2}.\]
+\end{solution}
+
+\newpage
+\section*{Problem 2}
+\begin{problem}
+   Consider an infinitely repeated game with the following stage games: 
+\end{problem}
+\[
+\begin{array}{c|cc}
+ & \text{Free trade} & \text{Protection} \\
+\hline
+\text{Free trade} & f,f & 0,f+p \\
+\text{Protection} & f+p,0 & p,p \\
+\end{array}
+\]
+
+
+
+The parameter $f > 0$ represents the value to a country of access to the other country's markets, whereas the parameter $p > 0$ represents the value to a country of protected access to its own markets. Assume that $f > p$.
+
+(a) For what values of $\delta$ is there a SPNE in which the players play (Free trade, Free trade) every period?
+\begin{solution}
+    Using the one-deviation property and the symmetry of the game, we consider player $1.$ With the strategy of $(F,F),$ we see that
+    \[u_i = f + f\delta + \dots = \frac{f}{1 - \delta}\] Suppose player $i$ deviates to protection, then since player $-i$ will retaliate with playing protection in the next round, we have that 
+    \[u_i'= f + p + p\delta + p\delta^2\dots = f + \frac{p}{1- \delta}.\] Thus, player $i$ will not deviate if 
+    \[u_i \geq u_i' \iff \frac{f}{1 - \delta} \geq f + \frac{p}{1 - \delta} \iff f\geq f - f\delta + p \iff f\delta \geq p \iff \delta \geq \frac{p}{f}\]
+\end{solution}
+
+
+
+(b) For $\delta$ arbitrarily close to 1, does there exist a SPNE in which the players take turns opening their markets, i.e., in which they play the following infinitely repeated sequence of outcomes?
+
+
+
+\[
+(\text{Free trade, Protection}), (\text{Protection, Free trade})
+\]
+
+
+
+If yes, why? If not, why not?
+
+\begin{solution}
+    We have that if the player's play the above strategy, then 
+    \[u_1 = 0 + (f + p)\delta + 0 + (f + p)\delta^3 + \dots = (f+p)\delta(1 + \delta^2 + \delta^4 + \dots) = \frac{(f + p)\delta}{1 - \delta^2}\]
+    \[u_2 = (f +p) + 0 + (f + p)\delta^2 + \dots = \frac{f + p}{1- \delta^2}.\]
+    Suppose player $1$ deviates and plays protection at every turn, then player $2$ will retaliate to $p$ and thus 
+    \[u_1' = p + p\delta  + p\delta^2 + \dots = \frac{p}{1-\delta}\]
+    Similarly, if player $2$ deviates to protect at every turn, then 
+    \[u_2' = f+ p + p\delta + p\delta^2 + \dots  = f + \frac{p}{1-\delta}.\] In order for them not to deviate, we must have that 
+    \[u_1 \geq u_1' \iff \delta\frac{f + p}{1-\delta^2} \geq \frac{p}{1-\delta} \iff \delta f + \delta p \geq p(1 + \delta) \iff \delta f \geq p \iff \frac{p}{f}\leq \delta\] and similarly, 
+    \[u_2 \geq u_2' \iff \frac{f + p}{1 - \delta^2}\geq f + \frac{p}{1 - \delta} \iff f + p \geq f(1-\delta^2) + p(1 + \delta) \iff p \geq -f\delta^2 + p + p\delta \iff f\delta \geq p,\] and so 
+    \[\delta \geq \frac{p}{f}.\] Thus, we have that the players have no incentive to deviate if $\delta \geq \frac{f}{p},$ and so for $\delta \to 1,$ we have that the condition is satisfied and it is indeed an equilibrium.
+    
+\end{solution}
+
+
+\end{document}

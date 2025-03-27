@@ -1,0 +1,215 @@
+\documentclass[11pt]{article}
+
+% NOTE: Add in the relevant information to the commands below; or, if you'll be using the same information frequently, add these commands at the top of paolo-pset.tex file. 
+\newcommand{\name}{Agustin Esteva}
+\newcommand{\email}{aesteva@uchicago.edu}
+\newcommand{\classnum}{13110}
+\newcommand{\subject}{SSI: Formal Theory}
+\newcommand{\instructors}{Jingyuan Qian}
+\newcommand{\assignment}{Problem Set 3}
+\newcommand{\semester}{Fall 2024}
+\newcommand{\duedate}{2024-12-04}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+\newcommand{\Var}{\text{Var}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+% NOTE: Defining collaborators is optional; to not list collaborators, comment out the line below.
+%\newcommand{\collaborators}{Alyssa P. Hacker (\texttt{aphacker}), Ben Bitdiddle (\texttt{bitdiddle})}
+
+\input{paolo-pset.tex}
+
+% NOTE: To compile a version of this pset without problems, solutions, or reflections, uncomment the relevant line below.
+
+%\excludeversion{problem}
+%\excludeversion{solution}
+%\excludeversion{reflection}
+
+\begin{document}	
+	
+	% Use the \psetheader command at the beginning of a pset. 
+	\psetheader
+\section*{Problem 1}
+\begin{problem}
+A group has $100$ members. Each person can choose to participate or not participate in a common project.
+If n of them participate in the project, then each participant gets the benefit $p(n) = n$, and each of the
+$(100 - n)$ shirkers gets the benefit $s(n) = 4 + 3n.$
+\end{problem}
+\begin{itemize}
+    \item 
+    \begin{problem}
+        Write the expression for the total social payoff for the group.
+    \end{problem}
+    \begin{solution}
+    \[P = n * n + (100-n)(4 + 3n) = -2n^2 +296n + 400.\]
+    \end{solution}
+    \item 
+    \begin{problem}
+        How many participants will result in the maximum total social payoff for the group? In other words,
+calculate the optimal value of n that maximizes the expression in part (a).
+    \end{problem}
+    \begin{solution}
+        We compute the derivative with respect to $n$ to find the maximum point when $P' = 0.$
+        \[P'  = -4n +296 \implies \max(n) = 74.\]
+    \end{solution}
+    \item 
+    \begin{problem}
+        n plain English, explain intuitively why the socially optimal number of n in part (b) is difficult to
+achieve.
+    \end{problem}
+    \begin{solution}
+        It becomes exponentially harder to find people to participate in the project since the benefit to a shirker is larger than the benefit to a participant. It is easy to find a few selfless souls who want to participate but with each new one it gets harder and harder.
+    \end{solution}
+\end{itemize}
+\newpage
+
+\section*{Problem 2}
+\begin{problem}
+    In the Italian province of Tuscany, mushroom hunters search through the woods each day for the most
+expensive food in the world, truffles. Consider a game played by $99$ residents of San Miniato, a town
+famous for its white truffles, deciding each day whether to hunt for truffles or do some other work. If $H$
+people go hunting, each will, on average, find $10 - (H/10)$ ounces of truffles, which sell for $\$200/ounce.$
+Those who do not go mushroom hunting will do work that earns them $\$50$ a day.
+\end{problem}
+\begin{enumerate}
+    \item 
+    \begin{problem}
+        Prove that each resident prefers to go truffle hunting if no one else does, but prefers not to go truffle
+hunting if everyone else does.
+    \end{problem}
+    \begin{solution}
+        It will suffice to show that the payoff if $H=1$ is less than when $H = 99:$
+        \[P(H=1) = 200(10 - \frac{1}{10}) = \$1980> \$50\]
+        \[P(H=99) = 200(10 - \frac{99}{10}) = \$20< \$50.\] 
+    \end{solution}
+    \item 
+    \begin{problem}
+        Suppose the residents decide sequentially whether to go truffle hunting (that is, resident a decides
+first; upon observing a’s decision, resident b makes their decision, and this process is repeated for all
+99 residents). How many residents will go truffle hunting in this case? How much total daily income
+is generated in the town (including the residents who find other work)?
+    \end{problem}
+    \begin{solution}
+        Consider that this will the point when 
+        \[P(H) < 50 \implies 200(10-\frac{H}{10})< 50 \implies H < 97.5\] Thus, $97$ people will be willing to go truffle hunting an so $2$ brave souls will stay behind. Each of the $97$ people will make
+        \[P(H = 97) = 200(10 - \frac{97}{10}) = 60\] and so the town will make 
+        \[60(97) + 50(2) = \$5920.\]
+    \end{solution}
+    \item 
+    \begin{problem}
+        One day, the mayor of San Miniato, a benevolent dictator, decides to limit the number of people who
+are allowed to hunt truffles each day. How many people should be allowed to go truffle hunting each
+day in order to maximize the total town income?
+    \end{problem}
+    \begin{solution}
+        The total town income is 
+        \[T = 200H(10 - \frac{H}{10}) + 50(99-H) = -20H^2
+ +1950H+4950.\] Which will be maximized when 
+        \[T' = 0 \implies  -40H + 1950 \implies H = 48.75.\] Thus, the dictator should allow $49$ people to go hunting in order to maximize the income.
+    \end{solution}
+    \item 
+    \begin{problem}
+        Explain why some residents who are not selected to go truffle hunting under
+the mayor’s order will have an incentive to try to sneak away and go hunting anyway. How might the
+townspeople address this challenge?
+    \end{problem}
+    \begin{solution}
+        The first part of the question is obvious by (b). An individual will make more money if he goes before more than $97$ people go. To address this, the townspeople could do the following:
+        \begin{itemize}
+            \item Invest in public services with the large amount of money to show the people that not going truffle hunting is beneficial to all.
+            \item Rotate who gets to go truffle hunting each day in order so that everyone gets the same amount of income eventually.
+            \item Throw the people go hunting without a license in jail or death penalty.
+        \end{itemize}
+    \end{solution}
+\end{enumerate}
+\end{document}

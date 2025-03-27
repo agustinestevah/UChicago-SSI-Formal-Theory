@@ -1,0 +1,291 @@
+\documentclass[11pt]{article}
+
+% NOTE: Add in the relevant information to the commands below; or, if you'll be using the same information frequently, add these commands at the top of paolo-pset.tex file. 
+\newcommand{\name}{Agustin Esteva}
+\newcommand{\email}{aesteva@uchicago.edu}
+\newcommand{\classnum}{13110}
+\newcommand{\subject}{SSI: Formal Theory}
+\newcommand{\instructors}{Jingyuan Qian}
+\newcommand{\assignment}{Problem Set 1}
+\newcommand{\semester}{Fall 2024}
+\newcommand{\duedate}{2024-09-10}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+\newcommand{\Var}{\text{Var}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+% NOTE: Defining collaborators is optional; to not list collaborators, comment out the line below.
+%\newcommand{\collaborators}{Alyssa P. Hacker (\texttt{aphacker}), Ben Bitdiddle (\texttt{bitdiddle})}
+
+\input{paolo-pset.tex}
+
+% NOTE: To compile a version of this pset without problems, solutions, or reflections, uncomment the relevant line below.
+
+%\excludeversion{problem}
+%\excludeversion{solution}
+%\excludeversion{reflection}
+
+\begin{document}	
+	
+	% Use the \psetheader command at the beginning of a pset. 
+	\psetheader
+\section*{Problem 1}
+\begin{problem}
+    Let $A, B, C$ be sets. Suppose $A\subseteq B, B\subseteq C, B\subseteq A, C\subseteq A.$ Show that $A = B = C.$
+\end{problem}
+\begin{solution}
+    Let $b\in B.$ Since $B\subseteq C,$ we have that $b\in C.$ Since $C\subseteq A,$ we have that $b\in A.$ Thus, $B\subseteq A$ and since by assumption $A\subseteq B,$ we have by double inclusion that $A = B.$\\
+    Let $c\in C.$ Then since $C\subseteq A,$ we have that $c\in A$ and thus $c\in B$ and therefore $C\subseteq B.$ Since $B\subseteq C$ by assumption, we have that $B = C$ and thus $A = B = C.$
+\end{solution}
+
+\newpage
+\section*{Problem 2}
+\begin{problem}
+Let $X = (0,5),$ $Y = (2,4),$ $Z = (1,3),$ and $W = (3,5)$ be intervals in $\bbR.$ Find the following sets:
+\begin{enumerate}
+    \item $Y \cup Z$
+    \begin{solution}
+        $(1,4)$
+    \end{solution}
+    \item $Z \cap W$
+    \begin{solution}
+        $\emptyset$
+    \end{solution}
+    \item $Y\sm W$
+    \begin{solution}
+        $(2,3]$
+    \end{solution}
+    \item $(W\cap Y) \cup Z$
+    \begin{solution}
+        $((3,5) \cap (2,4)) \cup (1,3) = (1,4)$
+    \end{solution}
+    \item $X \sm (Z \cup W)$
+    \begin{solution}
+        $(0,5)\sm ((1,3)\cup (3,5)) = (0,1] \cup \{3\}$
+    \end{solution}
+\end{enumerate}
+\end{problem}
+
+\newpage
+\section*{Problem 3}
+Let $R$ be a complete and reflexive binary relation. Use the definition of quasitransitivity and
+acyclicity to show that if $R$ is quasitransitive, then $R$ is acyclic.
+\begin{solution}
+    Suppose $x_1Px_2, x_2 Px_3, \dots, x_{n-1}Px_n.$ Because $R$ is quasitransitive, then we must necessarily have that $x_1Px_n.$ Thus, by definition of $P,$ we have $x_1Rx_n$ and $\neg(x_nR x_1).$ Thus, $x_1Px_2, x_2 Px_3, \dots, x_{n-1}Px_n \implies x_1R x_n,$ showing acyclicity.
+\end{solution}
+
+\newpage
+\section*{Problem 4}
+\begin{problem}
+    Provide a counterexample when:
+\end{problem}
+\begin{enumerate}
+    \item 
+    \begin{problem}
+         Binary relation is acyclic but not quasi-transitive
+    \end{problem}
+    \begin{solution}
+        Let $X = \{x,y,z\}$ and impose the binary relation $R$ such that $xPy,$ $yPz,$ and $xIz,$ then $R$ on $X$ is acyclic since $xIz \implies xRz$ but it is obviously not quasitransitive since $xIz \implies \neg(xPz)$.
+    \end{solution}
+    \item 
+    \begin{problem}
+         Binary relation is quasi-transitive but not transitive.
+    \end{problem}
+    \begin{solution}
+        Let $X = \{x,y,z\}$ and impose the binary relation $R$ such that $xPy,$ $yIz,$ and $xIz.$ Then $R$ is quasitransitive since we have that $\neg (xPz), \neg (zPy)$ and $\neg (yPx).$ $R$ is not transitive since $xRz, zRy$ but $\neg (yRx)$
+    \end{solution}
+\end{enumerate}
+
+\newpage
+\section*{Problem 5}
+\begin{problem}
+    Suppose that $R$ is a complete and transitive preference relation on some finite set of alternatives X. Show that
+    \begin{enumerate}
+        \item 
+        \begin{problem}
+        The corresponding strict preference relation P is transitive $(xPy, yPz \implies xPz)$.
+        \end{problem}
+        \begin{solution}
+            Suppose $xPy$ and $yPz,$ then by definition of $P$ and transitivity, 
+            \[xRy, yRz \implies xRz.\]
+            Assume, for the sake of contradiction, that $zRx,$ then since $xRy,$ we have by transitivity that $zRy,$ and thus $\neg yPz,$ a contradiction! Thus, we have that $xRz$ and $\neg (zRx).$
+        \end{solution}
+        \item 
+        \begin{problem}
+        The corresponding indifference relation I is transitive $(xIy, yIz \implies xIz).$
+        \end{problem}
+        \begin{solution}
+            Easy! Suppose $xIy$ and $yIz.$ By definition of $I,$ we have that:
+            \[xIy \implies xRy, yRx;\]
+            \[yIz \implies yRz, zRy.\]
+            By transitivity:
+            \[xRy, yRz \implies xRz;\]
+            \[zRy,yRx\implies zRx,\] and thus $xIz.$
+        \end{solution}
+    \end{enumerate}
+\end{problem}
+
+\newpage
+\section*{Problem 6}
+\begin{problem}
+    Let us call a relation $R$ intransitive on the set $S$ if and only if for any elements $x, y, z \in S$, if $xRy$ and $yRz$, it’s definitely not true that $xRz$ (i.e, $xRy$ and $yRz$ but $\neg (xRz)$) According to this definition, which of the
+following relations are intransitive? Explain.
+\end{problem}
+\begin{enumerate}
+    \item 
+    \begin{problem}
+        If S is a finite set of line segments, “being longer in length”
+    \end{problem}
+    \begin{solution}
+        Let $x,y,z$ be line segments such that $x$ is longer than $y,$ $y$ is longer than $z,$ then it is definitely the case by the transitive property of Euclidean distance that $x$ is longer than $z.$ Thus, $R$ is {transitive} and thus \textbf{not intransitive}.
+    \end{solution}
+    \item 
+    \begin{problem}
+        If S is a finite set of people, “being the mother of”
+    \end{problem}
+    \begin{solution}
+        Let $x,y,z\in S$ and let $x$ be the mother of $y,$ $y$ be the mother of $z,$ then it better not be the case that $x$ is the mother of $z,$ since $x$ is the grandmother of $z.$ Thus, $R$ is \textbf{intransitive.}
+    \end{solution}
+    \item 
+    \begin{problem}
+        If S is a finite set of people, “being a sister of”
+    \end{problem}
+    \begin{solution}
+        Let $x,y,z$ be in $S.$ Suppose $x$ is a sister of $y$ and $y$ is a sister of $z,$ then evidently, $x$ is a sister of $z.$ Thus, $R$ is {transitive} and thus \textbf{not intransitive}
+    \end{solution}
+    \item 
+    \begin{problem}
+        If S is a finite set of straight lines on a plane, “being perpendicular to”
+    \end{problem}
+    \begin{solution}
+        Let $x,y,z \in S.$ Thus, $x,y,z$ are straight lines lying in the same plane. Suppose $x$ is perpendicular to $y$ and $y$ is perpendicular to $z,$ then $x$ is parallel to $z,$ and thus not perpendicular to each other. Thus, $R$ is \textbf{intransitive.} 
+    \end{solution}
+    \item 
+    \begin{problem}
+        If S is a finite set of members of the U.S. House of Representatives, “vote for in the
+Speaker election”
+    \end{problem}
+    \begin{solution}
+        Let $x,y,z\in S.$ If $x$ votes for $y$ in the election, $y$ votes for $z$ in the election, then $z$ can vote for whomever he wants in the election. However, since the definition of intransitive is that it is definitively not true that $z$ votes for $x,$ but that is a succinct possibility in this case, $R$ is \textbf{not  intransitive.}
+    \end{solution}
+\end{enumerate}
+\begin{problem}
+    Is every relation either transitive or intransitive? 
+\end{problem}
+\begin{solution}
+Consider $xPy,$ $yIz,$ and $xIz.$ It has been shown that $R$ is not transitive. Note that $xRy$ and $yRz$ and $xRz,$ not thus $R$ is not intransitive!
+\end{solution}
+
+\newpage
+\section*{Problem 7}
+\begin{problem}
+    Suppose that $R$ is a complete and transitive preference relation on some finite set of alternatives $X$. Define a new binary relation $PP$ (“\textit{way better than}”) as $xP P y$ if there exists an element $z \in X$ such that $xP z$ and $zP y$. Further define a corresponding weak preference
+relation $xRRy$ if $y$ is not way better than $x$.
+Is the binary relation RR complete? Is it transitive? Explain.
+\end{problem}
+\begin{solution}
+    Let $x,y\in X.$ Since $R$ is complete, we have that (without loss of generality), $xRy.$ Thus, $y$ is not way better than $x,$ and so $xRRy.$ Thus, $RR$ is complete.\\
+    
+    Suppose $X = \{1,2,3\}$ and the preference is the usual ordering on the naturals ($>$). Thus, we have that $3RR2$ and $2RR1,$ but $3PP1,$ since there exists $2$ such that $3P2$ and $2P1.$ Thus, $RR$ is not transitive, since we do not have that $3RR1.$ Thus, $RR$ is not necessarily transitive.
+\end{solution}
+
+\newpage
+\section*{Problem 8}
+\begin{problem}
+    Prove that if WARP is satisfied, then if $A \cap C(B)\neq \emptyset,$ then $C(A)\cap B \subset C(B).$  
+\end{problem}
+\begin{solution}
+    Let $x\in C(A)\cap B.$ Suppose $x\notin C(B).$ Since $x\in B,$ then $x\in B\sm C(B).$ Let $y\in C(B).$ By WARP, since $y\in C(B),$ $x\in B\sm C(B),$ and $x\in C(A),$ we have that $y\notin A.$ Thus $A\cap C(B) = \emptyset,$ which is a contradiction.
+\end{solution}
+
+\end{document}

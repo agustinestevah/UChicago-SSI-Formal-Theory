@@ -1,0 +1,367 @@
+\documentclass[12pt]{article}
+
+%
+%Margin - 1 inch on all sides
+%
+\usepackage[letterpaper]{geometry}
+\usepackage{tikz}
+\usepackage{tabularray}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{scrextend}
+\usepackage{times}
+\usetikzlibrary{intersections}
+\usetikzlibrary{calc}
+\geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
+\usepackage{mathrsfs,comment}
+%
+%Doublespacing
+%
+\usepackage{setspace}
+\doublespacing
+
+%
+%Rotating tables (e.g. sideways when too long)
+%
+\usepackage{rotating}
+
+
+%
+%Fancy-header package to modify header/page numbering (insert last name)
+%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{} 
+\chead{} 
+\rhead{Esteva \thepage} 
+\lfoot{} 
+\cfoot{} 
+\rfoot{} 
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt} 
+%To make sure we actually have header 0.5in away from top edge
+%12pt is one-sixth of an inch. Subtract this from 0.5in to get headsep value
+\setlength\headsep{0.333in}
+
+%
+%Works cited environment
+%(to start, use \begin{workscited...}, each entry preceded by \bibent)
+% - from Ryan Alcock's MLA style file
+%
+\newcommand{\bibent}{\noindent \hangindent 40pt}
+\newenvironment{workscited}{\newpage \begin{center} Works Cited \end{center}}{\newpage }
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+%\newcommand{\hide}[1]{} % for student version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+%\newcommand{\com}[1]{} % for student version
+\newcommand{\meta}[1]{{\color{green} #1}} % for making notes about the script that are not intended to end up in the script
+%\newcommand{\meta}[1]{} % for removing meta comments in the script
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\ho}{hole}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{excercise}{Exercise}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+\makeatother
+
+\bibliographystyle{plain}
+
+%
+%Begin document
+%
+\begin{document}
+\begin{flushleft}
+
+%%%%First page name, class, etc
+Agustin Esteva\\
+Professor Juan Qian\\
+SOSC 13110 Social Science Inquiry: Formal Theory\\
+December 12 2024\\
+
+
+%%%%Title
+\begin{center}
+A Summary of Bordalo, P., Coffman, K., Gennaioli, N. and Shleifer, A., 2016. ``Stereotypes.” \textit{The
+Quarterly Journal of Economics} 131(4)
+\end{center}
+
+
+%%%%Changes paragraph indentation to 0.5in
+\setlength{\parindent}{0.5in}
+%%%%Begin body of paper here
+``Stereotypes" (2016)\cite{Stereotypes} attempts to model stereotypes in a decision maker. Bordalo, Coffman, Gennaioli, and Shleifer present two credible results on the effects of stereotypes in a decision maker, including the idea that stereotypes are \textit{context dependent}---it matters which groups you are comparing when forming stereotypes. Their second conclusion is that stereotypical decisions include a \textit{``kernel of truth."} That is, stereotypes are grounded in true differences between groups, but these difference are usually hyperbolized. To start, the paper provides an overview on the subject by introducing us to various approaches to modeling stereotypes with a few examples, as well as introduces notation for this model. Afterwards, they introduce their model by giving a mathematical description of different kinds of stereotypes for a group and then go on to discuss their model's limitations. The third section talks about properties of their models by providing mathematics propositions about it and then comparing it to actual statistics. They then apply this model to two common stereotypes, one about women in mathematics and the second about disease testing. The paper finished by providing lab evidence and by gathering empirical evidence on political stereotypes, both which support their model.
+
+Three main assumptions help build the model:
+\begin{enumerate}
+    \item Stereotypes are context dependent. In order to make a valuable model, it must somehow include a comparison of a trait (crime, height, redhair) between groups (Black and White population, Dutch vs rest of the world, Irish vs rest of the world). ``Stereotypes" takes a frequentist approach to their model, comparing groups by measuring the probability of a trait in some population against the probability of the same trait in another population. 
+    \item Stereotypes contain a ``kernel of truth." Decision makers don't come up with stereotypes out of thin air, they have some basis of empirical facts which they can then stretch out into a stereotype. This is the reason the model takes a frequentist approach to stereotypes--- the model takes in actual data and then hyperbolizes certain aspects of it to make the stereotype.
+    \item People are bad at making decisions. They only remember certain things when making decisions. Usually, they remember the most striking relative difference between groups. If someone where to ask an American what the state with the oldest population is, their mind would immediately jump to Florida. While the age distribution of Floridians is similar to that of the entire country, the relative proportion of old Floridians is higher than any other state. Thus, our mind unproportionately weights Floridian's age when thinking of this question. To address this memory recall issue, the model more heavily weights traits with higher relative proportions in groups. 
+\end{enumerate}
+Certain assumptions are made in order to simplify the model:
+\begin{enumerate}
+    \item Traits of interest are fully understood by a decision maker before making decisions. Moreover, the decision maker is informed about these trait's probability distributions. That is, decision makers are aware of the empirical truth about any trait given any population. 
+    \item Decision makers know which two groups to compare. In our Florida example, was it clear to compare the sunshine state to every other state, or just southern states, or just compare it to Maine? This is important, because Maine actually has an even higher median age than Florida does, and thus the decision maker might not exaggerate this trait for Floridians so much \cite{MedianAge}. In the model, the comparison group is simplified to simply be the `universe' without the actual group. In our case, the comparison group would clearly be all the states except for Florida (and thus the ``universe" would be the USA).
+\end{enumerate}
+While these are all limitations of the model, they cannot be critiques of it, since they are baked into its definition. The author's themselves concede some shortcomings of their model. To begin, their model's account of memory recall is limited to only remembering groups by their most striking differences, but some decision makers recall traits by their likelihood in a population instead of by their representativeness. By the first assumption above, this is a very likely scenario--- if a decision maker understands the whole picture with all the probability distributions, then they are more likely to know the traits with the highest likelihood in a group, and are thus able to recall them more easily. This shortcoming leads nicely into a property of the model:
+\begin{prop}
+    If the group has a similar frequency of traits as its comparison (Florida's age distribution has roughly the same distribution as the country as a whole), then the representative trait chosen by the decision maker (the stereotype) is unlikely to be found in either group.
+\end{prop}
+    In our example, being an old is (relatively) unlikely for either Florida or the United States. This phenomenon generates inaccurate stereotypes, and the ``kernel of truth" hypothesis is strained, but not broken, since it is factually true that Floridan's have a higher relative proportion of older people. 
+    \begin{prop}
+    In contrast, if the group has very different frequency of traits as its comparison, then the stereotypical trait is a very common trait in the group. 
+\end{prop}
+That is, thinking that Dutch are tall is not an inaccurate stereotype, since the probability distribution of a tall person from Netherlands is very different than that of (for example) the United States. Another property of the model, to do with the weighting function embedded in the definition of the stereotype is as follows:
+\begin{prop}
+    Suppose we can order the traits of interest in some way. If the relative frequency of the traits within a group increase as the traits increase, then decision makers associate this group with higher traits. A similar result holds if the frequency is decreasing.
+\end{prop}
+To understand this property, the article provides the example of the stereotype that women are worse than men at math. Here, the traits of interest are the SAT's math section scores. This can obviously be ordered. Data says that men are twice as likely to have a perfect math score as women are, and their frequency of higher scores (when compared to the whole group), increase as the scores increase. By the proposition, we see that a decision maker can be understood to have the stereotype which associates men with higher math SAT scores. However, their distributions are actually very similar, and thus by Proposition 0.1, the stereotype is inaccurate. Thus, we can make sense of how decision makers overweight specific differences within groups, even though these differences are not diagnostic of the group as a whole.
+
+
+The paper claims that this model accounts for the fact that stereotypes are context dependent and that it contains some ``kernel of truth."
+\begin{enumerate}
+\item To provide evidence for the claim that stereotypes are context dependent (i.e, they depend on which two groups the decision maker is comparing), the researchers create a laboratory experiment which consists of two groups, the control and the treatment group. 
+\begin{itemize}
+\item The control is shown two groups. The first group is of a cartoon picture of boys, of which half are wearing a green shirt and half are wearing a purple shirt. The second group is of cartoon picture of girls, who's colored shirt distribution matches that of the boys exactly. Given that both colors are representative of either gender, the model predicts that the stereotype will be correct, that is, people's expectation of what color shirt girls wear will equal the actual color of shirts that the girls are wearing (same for the boys).
+\item The treatment is shown two groups. The first group is the same group of boys as in the control, but green shirts have become blue shirts. The second group is the exact same group of girls as in the control, with the same shirt-color distribution as in the control. The representative shirt for girls becomes green and that of boys becomes blue, and thus the model predicts that the stereotype will become that girls wear, on average, green more frequently and boys wear, on average, blue more frequently. Of course, this is not true since the frequency of girls wearing green is still one half and the frequency of boys wearing blue is one half.  
+\end{itemize}
+Although the results contain much variation within them, the paper states that  ``we interpret our results, \dots, as an important proof of concept: the presence of representative types biases ex post assessment" (Bordalo, 1781). That is to say, decision makers form stereotypes in the presence of distinctive differences within groups.
+
+\item To provide evidence for the ``kernel of truth" claim, the paper uses data sets on political preferences to see if the believed positions for both groups are systematically exaggerated. The key finding of this study is that, in line with the model, stereotypes can be predicted using the average responses. That is, true means of both groups predict believed means for each group, which evidently supports the ``kernel of truth" hypothesis. Moreover, the more representative a group’s extreme types, the greater the bias in beliefs about that group.
+\end{enumerate}
+Thus, the model is supported by the evidence. Stereotypes are found to be context dependent as well as found to contain some ``kernel of truth."
+
+While some shortcomings of the model have already been discussed above, we can now go more in depth after seeing the properties and evidence of the model. A model is supposed to be simple but still representative of the phenomenon at hand, but we argue that his model is much too simple in the way that their assumptions about context dependence are too limited. It was touched on above that it is assumed decision makers know which two groups to compare, but nowhere in the paper is it discussed the baseline assumptions about the decision maker's inherent stereotypes before looking at the data. That is, while the requirement that the decision maker is fully informed about the probability distributions before the decision at hand is already a high bar to clear, the paper makes an unsaid assumption that the decision maker has no predisposed biases irrelevant of data. This might explain why the first piece of data (shirt colors and gender) lined up so well with the model; no rational person has a built in bias for color of a shirt of gender (specially when pink is not an option). However, in something like the political dataset, the correlation between the model and the difference between groups might be impacted depending on the inherent biases of decision makers. This was not measured, as they were busy with providing evidence for the ``kernel of truth" argument. In the current political climate, it is unreasonable to believe that voters show up to a voting booth without already having some bias independent of data. That is,  modern voters don't form stereotypes from representative types between groups, they form it some other way.\\
+
+To critique the ``kernel of truth" hypothesis, we focus in on the example of the stereotype that men are better than women at math. The example illustrates how the stereotypes comes from an unlikely difference of the right tail gender distribution of the SAT Math section. Thus, the model dictates that such a sharp difference in the right tail, however unrepresentative of the total population, will create exaggerated (and often incorrect) stereotypes. In this case, the stereotype produced is that men are better than women at math. However, the decision maker in this model knows every possible distribution for this trait, and thus he knows about different studies, some of which show no sharp right tail for men being better at math (such as when they are younger). Thus, how does the decision maker account for when two different studies or distributions give conflicting ``kernels of truth?" Thus, I would argue that there are other factors, in this case a mix of misogyny and selective studies, that can impact how these stereotypes are formed. The other argument would be that these ``kernels of truth" are simply products of the stereotypes. Thus, the stereotypes themselves create kernels of truth. In our example, this is equivalent to the idea that as girls grow up, they hear that they cannot be as good at math as boys, so they are discouraged and do not try as hard. \\
+
+The rhetoric that won Donald Trump the election this year was thick with exaggerated stereotypes about immigrants. This model is able to explain where these stereotypes are founded in, and more importantly, to highlight the errors in these stereotypes. While the ``kernel of truth" argument can be misrepresented as actual significant differences between Americans and Hispanics, the paper is clear that it is in a decision maker's perception of how sharp these differences are, no matter how unrepresentative these differences might be, that actually influence their decisions. Thus, this model provides reasoning to such exaggerated rhetoric while also making sense of some more representative stereotypes (such as tall Dutch people). Moreover, this paper explains how such stereotypes are based on context dependence, and thus the rhetoric that highlighted the differences between distinct groups only served to fuel more exaggerated stereotypes. While this model might be overly simplified, it formalizes a subject in a way that not only works in some cases, but also sheds light on some properties of stereotypes which mught not be obvious from today's rhetoric.\\
+\end{flushleft}
+
+\begin{thebibliography}{9}
+\bibitem{Stereotypes}
+Bordalo, P., Coffman, K., Gennaioli, N. and Shleifer, A., 2016. “Stereotypes.” \textit{The
+Quarterly Journal of Economics} 131(4).
+
+\bibitem{MedianAge}
+Stats America
+\url{https://www.statsamerica.org/sip/rank_list.aspx?rank_label=pop46&ct=S09}
+\end{thebibliography}
+
+\end{document}

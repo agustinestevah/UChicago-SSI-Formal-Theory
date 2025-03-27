@@ -1,0 +1,96 @@
+\documentclass[10pt, oneside]{article} 
+\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry, esint}
+\usepackage{float}
+
+
+
+\geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin = .75in}  
+
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\Cdot}{\boldsymbol{\cdot}}
+\newcommand{\scA}{\mathscr{A}}
+\newcommand{\curl}{\text{curl}}
+
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[section]
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{prop}{Proposition}
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\input{paolo-pset.tex}
+
+
+
+\title{UChicago SSI: Formal Theory: 13210}
+\author{Notes by Agustín Esteva, Lectures by Scott Gehlbach}
+\date{Academic Year 2024-2025}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\vspace{.25in}
+
+\section{Lectures}
+
+\subsection{Wednesday, Mar 24: Introduction}
+In almost every strategic game, there are an odd number of Nash equilibrium.
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+             & work & shirk\\
+             \hline
+             work& ($\theta_1 -c$,$\theta_2 - c$) & (-c,0) \\
+             \hline
+             shirk&  (0,-c)& (0,0)\\
+        \end{tabular}
+        \caption{Cooperation with Incomplete Information}
+    \end{table}
+Very difficult problem! I don't know what he knows what I know etc. Solution is Bayesian Nash equilibrium. If the game is sequential, then we need the perfect Bayesian equilibrium (PBE).
+
+
+    We are going to be studying uncertainty. We denote the uncertainty of a player by $\theta$ or $\omega,$ and the set of possible uncertainties is $\Theta.$ 
+
+\begin{exmp}
+    Uncertainty could be a number: $\theta \in \Theta = [0,1].$ For example, Trump's true popularity in the 2020 election.
+
+    Uncertainty could be a truth value $\theta \in \Theta = \{0,1\}.$ For example, Trump tweeting that he won the election where $\theta = 1$ iff true.
+\end{exmp}
+
+\begin{defn}
+    Suppose that the uncertainty is a truth value of a statement. A \textbf{belief} is a probability $\mu = \bbP\{\theta  = 1\}.$ 
+
+    On the other hand, if the uncertainty is a number, then the uncertainty is a cdf $F: \Theta \to [0,1].$ 
+\end{defn}
+
+\begin{defn}
+    The set of all beliefs $\theta \in \Theta$ is denoted by $\Delta(\Theta),$ and it is the set of all probability distributions on $\Theta.$
+\end{defn}
+Note that in truth values, $\Delta(\Theta) = [0,1]$ and $\Delta([0,1]) = \{F \text{ cdf} \; | \: F: [0,1] \to [0,1]\}$
+
+\begin{defn}
+    \textbf{Information} is a process that generates signals ('data') conditional on uncertainty.
+\end{defn}
+\begin{exmp}
+    Suppose $\theta$ is truth value on Trump's tweet in 2020. Suppose $S = \{0,1\}$ represents AP announcememnt on Trump's victory. Then we define a map $\pi: \Theta \to \Delta(S)$
+    \[\pi_1 = \bbP\{s = 1 \; | \; \theta = 1\}\]
+    \[\pi_0 = \bbP\{s = 1 \;  | \theta = 0\}\] $(\pi_0, \pi_1)$ represents an information, and defines an editorial policy of the AP. For example $(0,1)$ represents perfect work by the AP, always reporting correct. $(\frac{1}{2}, \frac{1}{2})$ is terrible.$(1,1)$ then AP loves Trump.
+\end{exmp}
+\begin{rem}
+    Note that $s$ can be informative about $\theta,$ since if we suppose that $\bbP\{\theta = 1\} = \mu,$ then given that $s = 0,$ we update our belief to:
+    \[\bbP\{\theta = 1 \; | \: s = 0\} = \frac{\bbP\{\theta = 1 \cap s = 0\}}{\bbP(s = 0)}= \frac{\bbP\{\theta = 1 \cap s = 0\}}{\bbP(\theta = 1 \cap s = 0) + \bbP(\theta = 0 \cap s=0)}.\] We know that 
+    \[\bbP\{s = 0 | \theta = 1\} = 1-\pi_1 = \frac{\bbP(s = 0 \cap \theta = 1)}{\bbP(\theta = 1)} = \frac{\bbP(s = 0 \cap \theta = 1)}{\mu} \implies \bbP(s = 0 \cap \theta = 1) = (1-\pi_1)\mu\] Similarly for the other term, we find that 
+    \[\bbP\{\theta = 1 \; | \: s = 0\} = \frac{(1-\pi_1)\mu}{(1-\pi_0)(1-\mu) + (1-\pi_1)\mu} = \frac{\mu}{\frac{1-\pi_0}{1-\pi_1}(1-\mu) + \mu},\] and so $\bbP\{\theta = 1 \; | \: s = 0\} < \mu$ if and only if $\pi_0 < \pi_1$
+\end{rem}
+
+
+\end{document}
