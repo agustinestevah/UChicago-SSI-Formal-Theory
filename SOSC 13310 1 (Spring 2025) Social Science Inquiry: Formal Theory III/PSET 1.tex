@@ -1,0 +1,384 @@
+\documentclass[11pt]{article}
+\usepackage{float}
+% NOTE: Add in the relevant information to the commands below; or, if you'll be using the same information frequently, add these commands at the top of paolo-pset.tex file. 
+\newcommand{\name}{Agustin Esteva}
+\newcommand{\email}{aesteva@uchicago.edu}
+\newcommand{\classnum}{13310}
+\newcommand{\subject}{SSI: Formal Theory}
+\newcommand{\instructors}{Zhaotian Luo}
+\newcommand{\assignment}{Problem Set 1}
+\newcommand{\semester}{Spring 2025}
+\newcommand{\duedate}{23-04-25}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+\newcommand{\Var}{\text{Var}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+% NOTE: Defining collaborators is optional; to not list collaborators, comment out the line below.
+%\newcommand{\collaborators}{Alyssa P. Hacker (\texttt{aphacker}), Ben Bitdiddle (\texttt{bitdiddle})}
+
+\input{paolo-pset.tex}
+
+% NOTE: To compile a version of this pset without problems, solutions, or reflections, uncomment the relevant line below.
+
+%\excludeversion{problem}
+%\excludeversion{solution}
+%\excludeversion{reflection}
+
+\begin{document}	
+	
+	% Use the \psetheader command at the beginning of a pset. 
+	\psetheader
+\section*{Problem 1}
+
+\textbf{Payoff Matrix:}
+
+\[
+\begin{array}{c|c|c}
+1/2 & \text{Work} & \text{Shirk} \\
+\hline
+\text{Work} & r - c, \theta - c & -c, 0 \\
+\text{Shirk} & 0, -c & 0, 0 \\
+\end{array}
+\]
+
+Player 1's value of collaboration \( r \in (0,1) \) is common knowledge, while player 2's value \( \theta \in [0,1] \) is drawn from the uniform distribution and observed only by player 2.
+
+\begin{enumerate}
+    \item Is there any Bayesian Nash Equilibrium (BNE) in which player 1 always chooses to shirk? If there is, what is player 2's strategy in this BNE?
+\begin{solution}
+    Consider the \textbf{strategy in which player $1$ chooses to shirk always} and \textbf{player $2$ chooses to shirk regardless of type $\theta.$} Denote by $a_i$ the action taken by player $i.$ Note that $a_i \in \{W,S\}.$
+
+    Fix player $2$ with this strategy. Then player $1$ receives a payoff from shirking of 
+    \[U_1(a_1 = S | \theta)= U_1(a_1 = S) = 0.\] Player $1$ receives a payoff from working of 
+    \[U_1(a_1 = W\mid \theta)  = U_1(a_1 = W)= -c.\] This will be optimal for player $1$ as long as $\boxed{0\geq -c},$ which is always true. 
+
+\end{solution}
+    \item Assume there is a BNE in which player 1 always chooses to work. What is player 2's strategy in this BNE?
+\begin{solution}
+ Fix player $1$ with this strategy. Then player $2$ receives a payoff from shirking of 
+    \[U_2(a_2 = S \mid \theta) = U_2(a_2 = S) = 0.\] Player $2$ receives a payoff from working of 
+    \[U_2(a_2 = W \mid \theta) = -c.\] This will be optimal for player $2$ as long as $0\geq -c,$ which is always true. 
+
+    Thus, this strategy denotes a BNE. 
+The strategy is for player $1$ to always work and for player $2$ to work if, and only if, $\theta \geq c$.
+
+To see this, first fix player $1,$ then player 2's payoff matrix is given by \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+             & Work & Shirk \\
+             \hline
+             Work& $\theta-c$& 0 \\
+        \end{tabular}
+    \end{table} 
+the expected payoffs are given by 
+\[\bbE[W_2] = \theta -c, \quad \bbE[S_2] = 0,\] and so player $2$ will work if, and only if, $\theta - c \geq 0 \implies \boxed{\theta \geq c.}$ That is, if the payoff of player $2$ is greater than the cost, then he will always work. 
+    
+\end{solution}
+    \item Derive the condition in terms of \( c \) and \( r \) under which there exists a BNE in which player 1 always chooses to work.
+\begin{solution}
+Fix player $1$ $2$ with the strategies as above. Consider that since $\theta \sim U([0,1]),$ then if $c\in [0,1]$
+\[\bbP\{\theta < c\} = c, \quad \bbP\{\theta \geq c\} = 1-c.\] Then the payoff player $1$ receives from working is
+\[\bbE[W] = (r-c)\bbP\{\theta \geq c\} + (-c)\bbP\{\theta < c\} = (r-c)(1-c) -c^2 = r  - rc -c +c^2 - c^2 = r(1-c) - c.\] The payoff player $1$ receives from shirking is
+\[\bbE[S_1]= 0.\] Thus, we need $r(1-c) \geq c$ and so player $1$ will work if $\boxed{r\geq \frac{c}{1-c}},$ which is always met, but by our strategy profile, player $2$ always works.
+
+Thus, this strategy denotes a BNE. Consider when $r \geq \frac{c}{1-c}.$ Then the strategy profile where player $1$ always works and player $2$ works if, and only if, $\boxed{\theta \geq c}$ constitutes a BNE.
+\end{solution}
+    \item Assume there is a BNE in which player 1 chooses to work with probability \( p \in (0,1) \). What is player 2's strategy in this BNE?
+\begin{solution}
+    We claim that the strategy with which player $1$ chooses to work with probability $p$ and shirks with probability $1-p$ and player $2$ works if and only if $\theta \geq \frac{c}{p}$ constitutes a BNE. 
+
+First, fix player $1$s strategy. Then the payoffs of player $2$ are given by 
+\[\bbE[W_2] = (\theta - c)p + (-c)(1-p) = \theta p -cp - c + cp = \theta p -c\]
+\[\bbE[S_2] = 0.\]
+Thus, player $2$ will work if, and only if, 
+\[\theta p -c \geq 0 \implies \boxed{\theta \geq \frac{c}{p}}.\] 
+
+
+\end{solution}
+    \item Derive the condition in terms of \( c \) and \( r \) under which there exists a BNE in which player 1 chooses to work with some probability \( p \in (0,1) \), and calculate \( p \) as a function of \( c \) and \( r \).
+    
+    (Hint: \( p \in (0,1) \) requires player 1 to be indifferent between working and shirking.)
+\begin{solution}
+Fix player $2$s strategy from above to work iff $\theta \geq \frac{c}{p}$ Then the payoffs of player $1$ are given by 
+\[\bbE[W_1] = (r-c)\bbP\{\theta \geq \frac{c}{p}\} + (-c)\bbP\{\theta < \frac{c}{p}\} = (r-c)(1 - \frac{c}{p}) - \frac{c^2}{p} = r - \frac{rc}{p} - c\]
+\[\bbE[S_1] = 0,\] and so player $1$ will work if, and only if, 
+\[r - \frac{rc}{p} - c\geq 0 \iff rp - rc - cp \geq 0 \iff p(r-c) \geq rc \iff p \geq \frac{rc}{r-c}\] Thus, 
+    \[\boxed{p = \frac{rc}{r-c}}\] is where player $1$ is indifferent between working and shirking. Since $p$ is a probability, we have that 
+    \[0 < p < 1 \implies 0 < \frac{rc}{r-c} < 1 \implies rc < r-c \implies \boxed{\frac{c}{1-c} < r}\]
+\end{solution}
+\end{enumerate}
+
+\newpage
+\section*{Problem 2}
+Consider an information structure with a prior $\mu \in \Delta(\Theta)$ and a type generating function $\pi: \Theta \to \Delta(\Theta).$ Prove that if this information structure is conditionally independent, then 
+\[\pi(\theta, s_{-i} \mid s_i) = \pi(\theta \mid s_{i})\pi(s_{-i} \mid \theta) = \frac{\pi(s_{-i} \mid \theta) \pi(s_i \mid \theta)\mu(\theta)}{\sum_{\theta \in \Theta}\pi(s_i \mid \theta )\mu(\theta)}\]
+
+\begin{solution}
+For the second equality, consider that by Bayes' rule
+\[\pi(\theta \mid s_i) =
+\frac{\pi(\theta , s_i)}{\pi(s_i)}.\] For the numerator, we have that again, by Bayes' rule:
+\[\pi(\theta, s_i) = \pi(s_i \mid \theta)\pi(\theta) = \pi(s_i \mid \theta)\mu(\theta).\] For the denominator, we use the law of total probability, 
+\[\pi(s_i) = \sum_{\theta \in \Theta} \pi(s_i \mid \theta)\pi(\theta) = \sum_{\theta \in \Theta}\pi(s_i \mid \theta)\mu(\theta).\] Putting it all together, we see that 
+\[\pi(\theta \mid s_i) =
+\frac{\pi(s_i \mid \theta)\mu(\theta)}{\sum_{\theta \in \Theta}\pi(s_i \mid \theta)\mu(\theta)}.\] 
+
+For the first equality, we again use Bayes' rule:
+\begin{align*}
+    \pi(\theta, s_{-i} \mid s_i) &= \frac{\pi(\theta, s_{-i}, s_i)}{\pi(s_i)}\\
+    &= \frac{\pi(s_i)\frac{\pi(\theta, s_i)}{\pi(s_i)}\frac{\pi(\theta, s_{-i}, s_i)}{\pi(\theta, s_{i})}}{\pi(s_i)}\\
+    &= \pi(\theta \mid s_i)\pi(s_{-i} \mid \theta, s_i)\\
+    &= \pi(\theta \mid s_i) \frac{\pi(s_{-i}, \theta, s_i)}{\pi(\theta, s_i)}\\
+    &= \pi(\theta \mid s_i) \frac{\pi(s_{-i} s_i \mid \theta)\pi(\theta)}{\pi(s_i \mid \theta)\pi(\theta)}\\
+    &= \pi(\theta \mid s_i) \frac{\pi(s_{-i}  \mid \theta)\pi(s_i \mid \theta)\pi(\theta)}{\pi(s_i \mid \theta)\pi(\theta)}\\
+    &= \pi(\theta \mid s_i)\pi(s_{-i} \mid \theta).
+\end{align*}
+Note that we used conditional indpendence for the second to last equality.
+\end{solution}
+
+\newpage
+\section*{Problem 3}
+\begin{problem}
+
+Two armies, A and B, are about to fight against each other, each consists of a continuum of soldiers. Soldier in army A is indexed by \( i \in [0, 1] \) while soldier in army B is indexed by \( j \in [0, 1] \). Each soldier \( i \) chooses whether to fight for group A or to desert, \( a_i = 0,1 \), where \( a_i = 1 \) indicates fighting for group A. Each soldier \( j \) chooses whether to fight for group B or to desert, \( b_j = 0, 1 \), where \( b_j = 1 \) indicates fighting for group B. Fighting turnout in army A and B are respectively
+
+\[
+A = \int_0^1 a_i \, di, \quad B = \int_0^1 b_j \, dj
+\]
+
+A soldier's payoff depends on which army wins and on whether he/she fights for the army. Specifically, each \( i \) gets
+
+\[
+\begin{array}{c|c|c}
+ & \text{A wins} & \text{B wins} \\
+\hline
+a_i = 1 & r_A - c_A & -c_A \\
+a_i = 0 & 0 & 0 \\
+\end{array}
+\]
+
+where \( c_A > 0 \) is the cost of fighting for army A and \( r_A > c_A \) is the reward. Note that a soldier in group A gets the reward iff he participates the fight and army A defeats army B. Similarly, each \( j \) gets
+
+\[
+\begin{array}{c|c|c}
+ & \text{A wins} & \text{B wins} \\
+\hline
+b_j = 1 & -c_B & r_B - c_B \\
+b_j = 0 & 0 & 0 \\
+\end{array}
+\]
+
+where \( c_B > 0 \) and \( r_B > c_B \).
+
+A defeats B iff
+
+\[
+A - B \geq \theta,
+\]
+
+where \( \theta \in \mathbb{R} \) measures the advantage of B against A due to factors other than soldier turnout.
+
+Nobody knows \( \theta \) and the prior is uniform. Each \( i \) receives a signal
+
+\[
+s_i = \theta + \epsilon_i
+\]
+
+and each \( j \) receives a signal
+
+\[
+s_j = \theta + \epsilon_j,
+\]
+
+where \( \epsilon_i \) and \( \epsilon_j \) are i.i.d. and drawn from a c.d.f. \( F \).
+\end{problem}
+
+\begin{enumerate}
+    \item (1 point) If \( \theta > 1 \), who would win and what would each soldier do? If \( \theta < -1 \), who would win and what would each soldier do?
+\begin{solution}
+    Suppose $\theta >1,$ then army $A$ will defeat $B$ iff $A - B \geq \theta.$ As defined, $\max A = 1$ and $\min B = 0,$ that is, the maximum $\max A - B = 1,$ and so $A - B < \theta$ for any possible combination of the armies. Thus, \textbf{army $A$ will lose no matter what.} 
+    
+    Given this, then for any $i \in [0,1],$ if $i$ fights, he receives a payoff of $-c_A$ with probability 1. If he surrenders, then he receives a payoff $0$ with probability $1.$ Since $0 \geq -c_{A},$ \textbf{then $i$ will surrender no matter the size of $B$.}
+
+    For any $j \in [0,1],$ if $j$ fights, he receives a payoff of $r_B - c_B$ with probability $1.$ If he surrenders, then he receives a payoff of $0.$ Since $r_B - c_B > 0$ by assumption, \textbf{then $j$ will fight no matter what. }
+\rule{\linewidth}{0.4pt}
+
+
+Suppose $\theta <-1.$ Then since $\min A = 0$ and $\max B = 1,$ we have that $\min A - B = -1.$ Thus, $A-B \geq -1 >\theta$ no matter the combination of the armies, and so \textbf{$A$ will win no matter what.} Using symmetrical logic as the above case, \textbf{a soldier $i$ will fight unconditionally} and \textbf{a soldier $j$ will surrender unconditionally.}
+\end{solution}
+    \item (1 point) What is a critical state of this game?
+\begin{solution}
+    We may guess that army $A$ will win iff $\boxed{\theta  \leq \theta^*}$ for some $\theta^* \leq 1.$ This is because the lower $\theta$ is, the lower the advantage of $B$ against $A,$ and so $A - B$ has a higher chance of being above $\theta.$   
+\end{solution}
+    \item (2 points) Suppose we have a critical state \( \theta^* \). What would soldier \( i \) in army \( A \) do after observing \( s_i \)? What would soldier \( j \) in army \( B \) do after observing \( s_j \)?
+\begin{solution}
+    Fix army $B$ and consider soldier $i.$ He receives payoff of $r_A  - c_A$ when they win, and $-c_A$ when $A$ loses. The probability of $A$ winning (given the information that $i$ has) is (denoting a win by W and a loss by L), 
+    \[\bbP\{W \mid s_i\} = \bbP\{\theta \leq \theta^* \mid s_i\} = \bbP\{s_i - \varepsilon_i \leq \theta^*\} = \bbP\{\varepsilon_i > s_i - \theta^*\} = 1- F(s_i - \theta^*) = 1-\bbP\{L\mid s_i\}.\] Thus, the payoff of $i$ going to war is 
+    \[\bbE[a_i = 1 \mid s_i] = (r_A - c_A)(1- F(s_i - \theta^*)) + (-c_A)(F(s_i - \theta^*) = r_A(1- F(s_i - \theta^*) - c_A.\] The payoff of $i$ surrendering is
+    \[\bbE[a_i = 0 \mid s_i] = 0.\] Thus, player $i$ fights in this war if and only if
+    \begin{align*}
+        &r_A(1- F(s_i - \theta^*) - c_A \geq 0\\
+        &\implies F(s_i - \theta^*) \leq 1 - \frac{c_A}{r_A}\\
+        &\implies s_i- \theta^* \leq F^{-1}(1 - \frac{c_A}{r_A})\\
+        &\implies \boxed{s_i \leq \theta^* + F^{-1}(1 - \frac{c_A}{r_A})} =: k_A.
+    \end{align*}
+Thus, player $i$ fights iff $s_i \leq \theta^* + F^{-1}(1 - \frac{c_A}{r_A}) = k_A.$ Using symmetrical logic, player $j$ will fight iff 
+\[\boxed{s_j \geq \theta^* + F^{-1}(\frac{c_B}{r_B})} =: k_B.\]
+\end{solution}
+    \item (2 points) Prove that given the strategies of \( i \)'s and \( j \)'s you derive in 2.3, there must be a critical state. (Hint: use the strong law of large numbers).
+\begin{solution}
+    We assume that each soldier makes their decision independently. The strong law of large numbers then states that 
+    \[\int_0^1 a_i di = \bbE[a_i \mid \theta]\] Thus, using the definition of expectation,
+    \begin{align*}
+        A &= \int_0^a a_i di\\
+        &= \bbE[a_i \mid \theta]\\
+        &= \bbP\{a_i = 1 \mid \theta\}\\
+        &= \bbP\{s_i \leq k_A \mid \theta\}\\
+        &= \bbP\{\theta + \varepsilon_i \leq k_A \}\\
+        &= F(k_A - \theta)
+    \end{align*}
+    Similarly, 
+    \begin{align*}
+        B &= \int_0^1 b_j dj\\
+        &= \bbE[b_i \mid \theta]\\
+        &= \bbP\{b_i = 1 \mid \theta\}\\
+        &= \bbP\{s_j \geq k_B \mid \theta\}\\
+        &= \bbP\{\theta + \epsilon_j \geq k_B\}
+    \end{align*}
+    Symmetrically, we have that
+    \[B = 1 - F(k_B - \theta).\] Then army $A$ will win and $B$ will lose when 
+    \[A - B \geq \theta \iff F(k_A - \theta) - (1 - F(k_B - \theta)) \geq \theta \iff  F(k_A - \theta) +F(k_B - \theta) \geq 1 + \theta.\]
+    We claim there exists some $\theta^*$ such that 
+    \[F(k_A - \theta^*) +F(k_B - \theta^*) = 1 + \theta^*.\] To see this, define an auxiliary function $\varphi: \Theta \to \bbR$ by
+    \[\varphi(\theta):= F(k_A - \theta) +F(k_B - \theta) - 1 - \theta.\] It suffices to show that there is some $\theta^*$ such that $\varphi(\theta^*) = 0.$ Recall a few facts about any cdf:
+    \begin{itemize}
+        \item $F$ is monotonically increasing;
+        \item $F$ is right continuous, but assume that it is continuous since we are dealing with continuous random variables;
+        \item $\lim_{x\to -\infty}F(x) = 0,$ and $\lim_{x\to \infty} F(x) = 1.$ 
+    \end{itemize}
+    Thus, we have that $\varphi$ is continuous over $\Theta$ with 
+    \[\lim_{\theta \to -\infty} \varphi(\theta)= \lim_{\theta \to -\infty} F(k_A - \theta) + \lim_{\theta \to -\infty} F(k_B - \theta) - 1 - \lim_{\theta \to -\infty} \theta = 1 + 1 - 1 + \infty = \infty.\] Similarly, 
+    \[\lim_{\theta \to \infty} \varphi(\theta)=-\infty\]
+    By the IVT, there is some $\theta^* \in \Theta$ such that $\varphi(\theta^*) = 0.$ That is,
+    \[F(k_A - \theta^*) +F(k_B - \theta^*) = 1 + \theta^*.\]
+    
+\end{solution}
+    \item (2 points) Solve the critical state in BNE and discuss how it relates to \( r_A, c_A \) and \( r_B, c_B \). Comment on the solution as if you were commanding an army.
+\begin{solution}
+    We have 3 equations, 3 unknowns:
+    \begin{align}
+        F(k_A - \theta^*) +F(k_B - \theta^*) = 1 + \theta^*
+    \end{align}
+    \begin{align}
+        \theta^* + F^{-1}(1 - \frac{c_A}{r_A}) = k_A
+    \end{align}
+    \begin{align}
+        \theta^* + F^{-1}(\frac{c_B}{r_B}) = k_B
+    \end{align}
+    Plug in (2) and (3) into (1):
+    \begin{align*}
+        F(k_A - \theta^*) +F(k_B - \theta^*) &= F(\theta^* + F^{-1}(1 -\frac{c_A}{r_A}) - \theta^*) +F( \theta^* + F^{-1}(\frac{c_B}{r_B}) - \theta^*)\\
+        &= F(F^{-1}(1 - \frac{c_A}{r_A})) + F(F^{-1}(\frac{c_B}{r_B}))\\
+        &= 1 - \frac{c_A}{r_A} + \frac{c_B}{r_B}\\
+        &= 1 + \theta^*
+    \end{align*}
+    Thus,
+    \[\boxed{\theta^* = \frac{c_B}{r_B}- \frac{c_A}{r_A}} \]
+
+Suppose I am commander A. I would want $\theta^*$ to be as high as possible, so then I would want $\frac{c_A}{r_A}$ to be as low as possible. Thus, I would start a cult that glorifies death in war (much like the culture surrounding war in WW2 Japan) to decrease the cost of fighting, and I would pay my soldiers more! Commander $B$ would do the same with his soldiers, since he wants $\theta^*$ to be low.
+\end{solution}
+\end{enumerate}
+
+
+
+\end{document}

@@ -11,6 +11,7 @@
 \newcommand{\bbZ}{\mathbb{Z}}
 \newcommand{\bbN}{\mathbb{N}}
 \newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbE}{\mathbb{E}}
 \newcommand{\bbQ}{\mathbb{Q}}
 \newcommand{\Cdot}{\boldsymbol{\cdot}}
 \newcommand{\scA}{\mathscr{A}}
@@ -91,6 +92,462 @@ Note that in truth values, $\Delta(\Theta) = [0,1]$ and $\Delta([0,1]) = \{F \te
     \[\bbP\{s = 0 | \theta = 1\} = 1-\pi_1 = \frac{\bbP(s = 0 \cap \theta = 1)}{\bbP(\theta = 1)} = \frac{\bbP(s = 0 \cap \theta = 1)}{\mu} \implies \bbP(s = 0 \cap \theta = 1) = (1-\pi_1)\mu\] Similarly for the other term, we find that 
     \[\bbP\{\theta = 1 \; | \: s = 0\} = \frac{(1-\pi_1)\mu}{(1-\pi_0)(1-\mu) + (1-\pi_1)\mu} = \frac{\mu}{\frac{1-\pi_0}{1-\pi_1}(1-\mu) + \mu},\] and so $\bbP\{\theta = 1 \; | \: s = 0\} < \mu$ if and only if $\pi_0 < \pi_1$
 \end{rem}
+
+\newpage
+\subsection{Monday: Mar 31: Bayesian Analysis and Dark Forest Theory}
+\begin{exmp}
+    Suppose $\theta$ is Trump's true popularity. Let the signal/results $s \in \{0,1\}$ represent whether Trump has won the election.
+
+    $s$ is generated conditional on $\theta$ by $\pi: \{0,1\} \to [0,1]$ such that 
+    \[\pi(\theta) = \bbP\{s = 1 \mid \theta\}\]
+
+    Each $\pi$ defines an electoral system, where different $\pi$ lead to different interpretations of $s.$ 
+    \begin{exmp}
+        In democracies, $\pi$ is a cutoff function such that 
+        \[\pi(\theta) = \begin{cases}
+            0, \quad \theta < k\\
+            1, \quad \theta \geq k
+        \end{cases},\] where $k = \frac{1}{2}$ most often.
+    \end{exmp}
+    Note that $s$ can be informative about $\theta.$ 
+
+    The most uninformative prior, we believe that $\theta$ is uniformly distributed on $[0,1],$ by $F(\theta)  = \theta$ and thus $\bbE[\theta] = \frac{1}{2}.$ Moreover, we know that 
+    \[\bbP\{s = 0 \mid \theta\} = 1- \pi(\theta)\]
+
+    If $s = 0,$ the $\theta$ is distributed on $[0,k]$ and thus 
+    \[\bbP\{\theta \leq x \mid s = 0\} = \frac{\int_0^x (1 - \pi(\theta))d\theta}{\int_0^1 (1 - \pi(\theta))d\theta} = \begin{cases}
+        \frac{x}{k}, \quad x < k\\
+        1, \quad x\geq k
+    \end{cases}\]
+
+    
+    \[\bbE[\theta \mid s= 0] = \frac{\int_0^k \theta d\theta}{\int_0^k d\theta} = \frac{k}{2}\]
+\end{exmp}
+
+\begin{exmp}
+    Information about $\theta$ is defined by $\pi: \Theta \to \Delta(S),$ where $\Theta$ is the state space, $S$ is the signal space, and for each $\theta \in \Theta,$ $\pi( \cdot \mid \theta)$ is a probability distribution on $S.$ 
+
+    Suppose $s = \theta + z,$ where $z \sim N(0,1).$ Then the likelihood is 
+    \[\pi(s \mid \theta) = \bbP\{z = s- \theta\} = \frac{1}{\sqrt{2\pi}}e^{-\frac{(s-\theta)^2}{2}}\] Suppose our prior is binomial $\bbP\{\theta = 1\} = \mu$
+    
+    Thus, if $\theta \in \{0,1\},$ then 
+    the posterior is 
+    \begin{align*}
+        \bbP\{\theta = 1\mid s\} &= \frac{\pi(s \mid 1)\mu}{\pi(s \mid 0)(1-\mu) + \pi(s \mid 1)\mu}\\
+        &= \frac{e^{-\frac{(s-1)^2}{2}}\mu}{e^-\frac{s^2}{2}(1-\mu) + e^\frac{-(s-1)^2}{2}\mu}\\
+        &= \frac{\mu}{e^{\frac{1}{2} - s}(1-\mu) + \mu}
+    \end{align*}
+\end{exmp}
+
+\begin{exmp}
+    (The Dark Forest Theory) Suppose two civilizations seeking survival become aware of each other's existence. They can either choose war or peace. The cost of war is acceptable. If one fights and the other doesn't, the latter gets wiped out.
+Suppose war costs, $ c < \frac{1}{2},$ and only one civilization survives the war w.p. $\frac{1}{2}.$
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+             & War & Peace\\
+             \hline
+             War& ($\frac{1}{2} -c$,$\frac{1}{2} - c$) & (1-c,0) \\
+             \hline
+             Peace&  (0,1-c)& (1,1)\\
+        \end{tabular}
+        \caption{A Dim Forest Theory}
+    \end{table}
+
+
+    Let's darken the forest a bit. Each civilization $i \in \{A, B\}$ can be good or naughty $\theta_i \in \{0,1\}.$ An evil civilization $\theta_i = 1$ gains $b >c$ from war, and a civilization is evil w.p. $\bbP\{\theta_i = 1\} = \mu \in (0,1).$
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+             & War & Peace\\
+             \hline
+             War& ($\frac{1}{2}(1 + \theta_Ab) -c$,($\frac{1}{2}(1 + \theta_Bb)-c$) & (1 + \theta_Ab-c,0) \\
+             \hline
+             Peace&  (0,1 + \theta_Bb-c)& (1,1)\\
+        \end{tabular}
+        \caption{A Pitch Dark Forest Theory}
+    \end{table}
+ \end{exmp}
+
+
+ \newpage
+ \subsection{Monday, Apr 2: Bayesian Nash Equilibrium}
+ \begin{exmp}
+     Continuing from the pitch dark forest example from before. 
+
+     Suppose we are evil:
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+             & War & Peace\\
+             \hline
+             War& $\frac{1}{2}(1 + b) -c$& 1 + b \\
+             \hline
+             Peace&  0& 1\\
+        \end{tabular}
+        \caption{War and Peace as Evil}
+    \end{table}
+    Since $c < \frac{1}{2},$ we go to war! Even if we are good, it is optimal to go to war, since we do not want to be extinguished. Using classical analysis:
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+             & War ($\mu$)& Peace $(1 - \mu)$\\
+             \hline
+             War& $\frac{1}{2} -c$& 1 -c \\
+             \hline
+             Peace&  0& 1\\
+        \end{tabular}
+        \caption{War and Peace as Evil}
+    \end{table}
+    Then 
+    \[\bbE[\text{war}] = (\frac{1}{2} - c)\mu + (1-c)(1-\mu) = 1 - \frac{1}{2}\mu -c\]
+    \[\bbE[\text{peace}] = 1-\mu\] You are indifferent to them whenever 
+    \[1 - \frac{1}{2}\mu -c  = 1-\mu\iff \frac{1}{2}\mu = c.\] Thus, if $\mu \leq 2c,$ then we will go to war.
+ \end{exmp}
+
+ \begin{exmp}
+     Let $i \in \{1,2\},$ and suppose $\theta_i \sim \text{Uniform}[0,1].$ Suppose $c \in (0,1)$ represents the cost to work. Then 
+     \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+             & Work & Shirk \\
+             \hline
+             Work& $\theta_1-c, \theta_2 - c$& -c, 0 \\
+             \hline
+             Shirk&  0, -c& 0,0\\
+        \end{tabular}
+        \caption{Collaboration}
+    \end{table}
+    Harsanyi Approach: 
+    1) Treat different types of players as different players: there are uncountably infinite different kinds of players since $\theta_1$ can take any number in $[0,1].$ Suppose the other guy works with probability $p$ and shirks with $1-p.$ Then our payoff i given by
+         \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+             & Work & Shirk \\
+             \hline
+             Work& $\theta_1-c$& -c \\
+             \hline
+             Shirk&  0& 0\\
+        \end{tabular}
+        \caption{Finding constraints}
+    \end{table}
+    We work if and only if $p \theta_1 \geq c \iff \theta_1 \geq \frac{c}{p}.$ Thus, player $1$ will work iff $\theta_1 \geq k_1$ and player $2$ will work iff $\theta_2 \geq k_2.$
+
+    2) Fix player 2s strategy as work iff $\theta_2 \geq k_2,$ then our payoff is given by: 
+             \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+             
+             Work& \bbP\{\text{2 works}\}\theta_1 - c = \bbP\{\theta_2 \geq k_2\theta_1 - c = (1-k_2)\theta_1 -c\\
+             \hline
+             Shirk&  0\\
+        \end{tabular}
+        \caption{Payoffs given constraints}
+    \end{table}
+    Thus, we work iff $\theta_1 \geq \frac{c}{1-k_2} = k_1.$ By symmetry, $\theta_2 \geq \frac{c}{1 - k_1} = k_2.$ 
+
+    We claim that $k_1 = k_2.$ Suppose not, that $k_1 >k_2,$ then $1-k_1 < 1-k_2,$ then 
+
+    \[k_2 = \frac{c}{1-k_1} > \frac{c}{1-k_2} = k_1,\] a contradiction! Then letting $k_1 = k_2 = k,$ we have that we only have a solution if $c> \frac{1}{4}.$ Assuming we do have a solution:  
+    \[k = \frac{c}{1-k}\implies k^2 - k + c = 0 \implies k = \frac{1 \pm \sqrt{1 - 4c}}{2}.\] For $c> \frac{1}{4},$ the unique BNE is when everybody shirks, which can be seen through simple analysis.
+ \end{exmp}
+
+ \newpage
+ \subsection{Wednesday, Apr 9: Global Games}
+ \begin{exmp}
+     A large army of soldiers prepare for batter. Each soldier can fight (and be rewarded for victory at a cost or can dessert. 
+     \begin{itemize}
+         \item Let the soldiers be $i \in [0,1].$
+         \item Let $i$ choose $a_i \in \{0,1\}$ such that $a_i = 1$ means to fight and $a_i = 0$ means dessert. 
+         \item 
+         Let $c>0$ be the cost to fight. Let $r>c$ be the reward for victory. Each $i$ gets
+             \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+            micro/macro & win & lose\\
+             \hline
+             fight ($a_i = 1$)& $r -c$ & $-c$ \\
+             \hline
+             dessert ($a_i = 0$)&  $0$& $0$\\
+        \end{tabular}
+        \caption{Battlefield}
+    \end{table}
+     \item (Information Structure) We let the state space be $\Theta = \bbR.$ The army wins the battle iff 
+     \[A = \int_0^1 a_i di >\theta,\] where $\theta$ are the uncertainties (the factors to the disadvantage of the army). The uncertainty of winning follows the prior of
+     \[\theta \in U(\Theta) = U(\bbR)\] and each person observes a private signal 
+     \[s_i = \theta + \epsilon_i,\] where 
+     \[\epsilon_1, \epsilon_2, \dots \sim^{iid} F,\] where $F$ is continuous.
+
+     Thus, 
+     \[\pi_i(s_i \mid \theta) = \fac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(s_i -\theta)^2}.\] It can easily be shown that $\Vec{\pi}$ is conditionally independent 
+         \end{itemize}
+Consider the strategy profile where everybody shirks. Then this will be BNE iff $\theta <0.$ Consider the strategy profile where everybody fights. Then this will be BNE iff $\theta <1.$
+
+Consider the strategy profile where $a_i = 1$ iff $s_i < k,$ where $k \in \bbR.$ Thus, if we are player $i,$ then 
+
+             \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+            micro/macro & win & lose\\
+             \hline
+             fight ($a_i = 1$)& $\bbP\{W \mid s_i\}r -c$ & $-c$ \\
+             \hline
+             dessert ($a_i = 0$)&  $0$& $0$\\
+        \end{tabular}
+        \caption{Expected Battlefield}
+    \end{table}
+\begin{prop}
+There exists some $\theta^* \in \Theta$ such that
+    $\bbP\{W \mid s_i\} = 1-F(s_i - \theta ^*)$
+\end{prop}
+\begin{proof}
+    Recall that 
+    \[\pi(\theta,s_j \mid s_i) = \pi(\theta \mid s_i)\pi(s_j \mid \theta).\] Thus, it suffices to find 
+    \[\int_{\bbR}\bbP\{W\ \mid \theta\}\bbP\{\theta \mid s_i\}di.\]
+    \begin{itemize}
+        \item To calculate the first term, note that for every $j,$
+        \[\bbP\{a_j = 1 \mid \theta\} = \bbP\{s_j < k \mid \theta\} = \bbP\{\theta + \epsilon_j < k \mid \theta\} = \bbP\{\epsilon_j < k - \theta \mid \theta\} = F(k- \theta),\] By the strong law of large numbers, our condition to win is
+        \[\int_0^1 a_i di = F(k-\theta) >\theta\]
+        \begin{align*}
+            \bbP\{W \mid s_i\} &= \bbP\{F(k- \theta) >\theta \mid \theta\}\\
+            &\implies W \iff \theta < \theta^*
+        \end{align*}
+        Thus, 
+        \[\bbP\{W \mid s_i\}  = \bbP\{\theta < \theta^* \mid s_i\} = \bbP\{s_i - \epsilon_i < \theta^* \mid s_i\} = 1- \bbP\{\epsilon_i \leq s_i - \theta^* \mid s_i\} = 1-F(s_i - \theta ^*)\]
+    \end{itemize}
+\end{proof}
+Thus, from Table 10, $a_1 = 1$ if and only if 
+\[1- F(s_i - \theta^*)r - c >0 \iff F(s_i - \theta^*) < 1 - \frac{c}{r} \iff s_i< \theta^*  +F^{-1}(1- \frac{c}{r})\] Thus, we end up with 
+
+\begin{align}
+    k = \theta^* + F^{-1}(1-\frac{c}{r})
+\end{align}
+\begin{align*}
+    \theta^* = F(k - \theta^*)
+\end{align*}
+Solving gives
+\[\theta^* = 1- \frac{c}{r}, \quad k = 1-\frac{c}{r} + F^{-1}(1 - \frac{c}{r})\]
+\end{exmp}
+
+\newpage
+\subsection{Monday, Apr 14: Introducing Perfect Bayesian Equilibrium}
+\begin{exmp}
+    Consider a coup d'etat. Two politicians conspire against the rule. Each chooses to support the rule or stage a coup. The coup succeeds iff it is coordinated and the ruler is weak. Any participant of a failed coup is very harshly punished.  
+
+    Let $\theta \in \{0,1\}$ be the ruler's strength, where it is strong if $\theta = 1.$ $k>0$ is the punishment to failed coup. No one knows the strength and the prior is 
+    \[\bbP\{\theta = 1\} = \frac{1}{2}\] The game is 
+                 \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c}
+             & coup & support\\
+             \hline
+             coup & $1- \theta - \theta k, 1-\theta -\theta k$ & $-k, 0$ \\
+             \hline
+             support &  $0, -k$& $0,0$\\
+        \end{tabular}
+        \caption{}
+    \end{table}
+    \begin{prop}
+        Everyone supporting the ruler constitutes a BNE. Everyone opposes the rule  is a BNE iff $k\leq 1.$ If $k>1,$ then there exists no BNE such that a player stages a coup.
+    \end{prop}
+    \begin{proof}
+        We will prove the third statement. It suffices to show that $\bbP\{a_i = C\} = 0$ for $i\in \{0,1\}$ for any $a = (a_1, a_2)$ BNE strategy. Note that $P_1$ coups w.p. $q_1$ and $P_2$ coups w.p. $q_2.$ Fix $P_2,$ then $P_1$ payoff is $0$ if they support and $ \bbP\{W\} + (1-\bbP\{W\})(-k)  = \bbP\{W\} (1 + k) - k,$ which is greater than $0$ iff
+        \[\bbP\{W\}\geq \frac{k}{1+k}.\] But by independence,
+        \[\bbP\{W\} = \bbP\{P_2 = C, \theta = 0\} = \frac{1}{2}q_2.\] Putting these inequalities together, we see that $q_1 = 0.$ Similarly, we argue that $q_2  = 0.$ 
+    \end{proof}
+    Suppose now one politician is an insider with more information about $\theta.$ Let the insider observe a private signal $s \in \{0,1\}$ such that 
+    \[\bbP\{s = \theta\} = q \in (\frac{1}{2}, 1)\]
+    Then the type space of the outside is still the trivial space where he knows nothing. The insider now has two types, where he receives the signal of $1$ or a signal of $0.$ Since the outsider only has one type, the model is trivially conditionally independent.
+    \begin{prop}
+        The strategy profile where player $1,$ the insider, coups iff $s_1 = 0$ and player $2$ coups always forms a BNE when $k \in [\frac{1-q}{q}, \frac{q}{1-q}]$ and $k < 1.$
+    \end{prop}
+    \begin{proof}
+        Fix player $2$ strategy. Let's check $s_1 = 0.$ By supporting the leader, $P1$ receives $0$ payoff. By couping the leader, the expected payoff is 
+        \[\bbP\{\theta = 0 \mid s_1 = 0\}(1+ k) - k.\] Note that 
+        \begin{align*}
+        \bbP\{\theta = 0 \mid s_1 = 0\} &= \frac{\bbP\{\theta = 0\}\bbP\{s_1 = 0 \mid \theta = 0\}}{\bbP\{\theta = 0\}\bbP\{s_1 = 0 \mid \theta = 0\} + \bbP\{\theta = 1\}\bbP\{s_1 = 0 \mid \theta = 1\}}    \\
+        &= \frac{q\mu}{(1-q)\mu + q\mu}\\
+        &= \frac{q}{\frac{u}{1-\mu}(1-q) + q}\\
+        &= q
+        \end{align*}
+        Thus, P1 coups iff 
+        \[q(1 + k) - k \geq 0 \iff \frac{q}{1-q} \geq k \]
+
+        Let's check $s_2 = 1.$ By supporting, $P1$ receives $0$ payoff. By couping, the expected payoff is 
+        \[\bbP\{\theta = 0 \mid s_1 = 1\}(1+ k) - k.\] Thus, by a similar analysis as above, the strategy states that $P1$ coups iff
+        \[(1-q)(1+k) - k \leq 0 \iff k\geq \frac{1-q}{q}\]
+
+        The only thing remaining is to check about player $2.$ By supporting the leader $P2$ receives $0.$ By staging a coup, the expected payoff is 
+        \[\bbP\{W\}(1 + k) - k.\] We have that 
+        \begin{align*}
+            \bbP\{W\} &= \bbP\{\theta = 0, s_1= 0\}\\
+            &= \bbP\{\theta = 0\}\bbP\{s_1 = 0 \mid \theta = 0\}\\
+            &= \frac{1}{2}q\\
+        \end{align*}
+        and thus $P2$ coups iff $\frac{1}{2}q(1 + k) - k \iff k \leq \frac{q}{2 - q}$
+    \end{proof}
+    This last proposition shows the information can harm.
+    \begin{prop}
+        The strategy where everybody coups is a BNE when $k \leq \frac{1-q}{q} < 1.$
+    \end{prop}
+\end{exmp}
+
+\newpage
+\subsection*{Wednesday, Apr 16: Perfect Bayesian Nash Equilibrium}
+\textit{$\theta$ is r.v. drawn by God, disadvantage of army ($\theta\uparrow$ then army $\downarrow$). Thus, in this PSET, god favors an army (one army goes up w theta implies the other army does worse)}
+
+A PBE consists of a strategy profile and a belief system, where the belief system d must be consistent given the stratgy profile (derived by Bayes rule)
+\begin{exmp}
+    Same example from last class, but insider performs an action first and then outsider performs. Recall
+    \begin{table}[H]
+            \centering
+        \begin{tabular}{c|c|c}
+             & coup & support\\
+             \hline
+             coup & $1- \theta - \theta k, 1-\theta -\theta k$ & $-k, 0$ \\
+             \hline
+             support &  $0, -k$& $0,0$\\
+        \end{tabular}
+        \caption{}
+    \end{table}
+    The sequential game is given by 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{Images/SBPNE.png}
+        \caption{Extended Coup d'Etat}
+    \end{figure}
+Consider the strategy profile where the insider acts if and only if his signal states that the ruler is weak and the outsider acts if and only if the insider acts. Recall that for the insider,
+\[\bbP(\theta = 1 \mid s = 0) = 1-q, \quad \bbP\{\theta = 1 \mid s = 1\} = q\] and for the outsider,
+\[\bbP\{\theta = 1 \mid a_i = 0\} = \bbP\{\theta = 1 \mid s = 0\} = 1-q\]
+\[\bbP\{\theta= 1 \mid a_i = 1\} \bbP\{\theta = 1 \mid s = 1\} = q.\] Backwards inducting gives that the payoff of the outsider playing $a_2 = 0$ is 
+\[q - (1-q)k,\] and so he prefers to oppose iff 
+\[k \leq \frac{q}{1-q}.\]
+
+For the insider, we have that for the first type, $s = 0,$ player $2$ opposes with payoff 
+\[q - (1-q)k,\] and so he opposes if and only if 
+\[k \leq \frac{q}{1-q}.\] 
+
+For $s = 1$ ype of player $2,$ he opposes with payoff
+\[q(-k) + (1-q)(1) = 1-q-qk.\] Thus, he opposes if and only if
+\[k \geq \frac{1 - q}{q}\]
+
+Thus, this is a BNE if, and only if, 
+\[\frac{1-q}{q}\leq k \leq \frac{q}{1-q}\]
+\end{exmp}
+
+\newpage
+\subsection{Monday, Apr 21: A Game of Thrones}
+\begin{itemize}
+    \item Two generals are besieging an enemy castle
+    \item The siege will be successful iff both attack simultaneously
+    \item One general receives a letter accusing the other of treason
+    \item They have a conversation and the accused died the accusation
+\end{itemize}
+    \begin{table}[H]
+            \centering
+        \begin{tabular}{c|c|c}
+             & Attack & Retreat\\
+             \hline
+             Attack & $1- c, 1-c$ & $-c, \theta b$ \\
+             \hline
+             Retreat &  $0, -c$& $0,\frac{\theta b}{2}$\\
+        \end{tabular}
+        \caption{}
+    \end{table}
+Consider the following:
+\begin{itemize}
+    \item Everybody retreats is a BNE
+    \item $G_1$ attacks and $G_2$ matches is a BNE iff $\mu \leq 1-c.$
+    \item If $\mu >1-c,$ then there is no BNE for which $G_1$ attacks with any probability.
+\end{itemize}
+Thus, suppose we are in the realm when $\mu >1-c.$ Suppose $G_2$ can kill a captain $k = \{0,1\},$ and this action is visible to $G_1$. This kill brings a cost $d>0.$ We have made a new game:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Images/GOT.png}
+    \caption{Sequential Treason}
+\end{figure}
+$G_2$s belief is trivial, since he does whatever he believes in. 
+\begin{rem}
+    Suppose $G_1$ has the belief $\beta_1(\theta = 1\mid k) = \mu$ for all $k.$ 
+
+    Then type $\theta = 1$ of $G_2$ always retreats. So by attacking, $G_1$ can get at most $1-\mu - c < 0,$ and thus $G_1$ prefers to retreat.
+
+    Given that $G_1$, type $\theta = 0$ of $G_2$ prefers to retreat.
+
+    Thus, the captain being killed is of no consequence, and so $G_2$ never kills. 
+
+    This constitutes a sequentially unique rational strategy profile $\sigma:$
+    \[\sigma_2(k = 1 \mid \theta) = 0, \forall\,\theta\quad \sigma_1(a \mid k) = 0, \forall\, k, \quad \sigma_2(a \mid k,\theta) = 0, \forall\, \theta,k.\]
+    Thus, we can show that $\beta = (\beta_1, \beta_2)$ is consistent with $\sigma$ and so $(\sigma, \beta)$ is a PBE.
+\end{rem}
+\begin{rem}
+    Suppose $G_1$ has the belief $\beta_1(\theta =  1 \mid k) = 1-k$ for all $k.$ Checking sequential rationality, we see that 
+    \[\sigma_2(k = 1 \mid \theta) = 1-\theta, \forall\,\theta\quad \sigma_1(a \mid k) = 1-k, \forall\, k, \quad \sigma_2(a \mid k,\theta) = 1, \; k=1, \theta = 0, \quad \sigma_2(a \mid k,\theta) = 0, \; \text{else}\] It is easy to see that $(\sigma, \beta)$ is a PBE iff $\frac{b}{2} \leq d \leq 1-c$
+\end{rem}
+
+
+
+
+
+\newpage
+\subsection{Wednesday, Apr 23: Mechanism Design}
+
+Bayesian games consist of players, incentive structure (payoffs), and information structure. We can manipulate players in two ways:
+\begin{itemize}
+    \item Information Design: alter info structure while keeping incentive fixed. 
+    \item Mechanism Design: alter incentive structure while keeping info fixed. 
+\end{itemize}
+
+\begin{exmp}
+    Market of lemons. 
+
+Suppose the quality of a used car is a hidden type $\theta \sim U[0,1].$ Payoffs are given by 
+    \begin{table}[H]
+            \centering
+        \begin{tabular}{c|c|c}
+             & No Sale & Sale\\
+             \hline
+             Seller & $\pi \theta$ & $p$ \\
+             \hline
+             Buyer &  $0$& $\theta - p$\\
+        \end{tabular}
+        \caption{}
+    \end{table}
+    Where $\pi > \frac{1}{2}$ indicates the seller's frustrations with the car and $p$ is the price determined by the market.
+
+    Thus, if $p < \pi \theta,$ then there is no sale, if $p >\theta,$ then there is no sale. Thus, the buyer will not buy iff 
+    \[0 \leq \bbE[\theta] - p = \frac{1}{2} - p \implies p\leq \frac{1}{2}.\] If $p> \frac{1}{2},$ then nobody will buy in the market. The seller will sell the car iff \[\pi \theta \leq p \iff \theta \leq \frac{p}{\pi}\] and so the car will sell iff \[ \theta \leq \frac{1}{2\pi}.\]
+
+    We iterate. The buyer realizer this, then he will buy iff 
+    \[0 \leq \bbE[\theta \mid \theta \leq \frac{1}{2\pi}] - p = \frac{1}{4\pi}  -p \implies p \leq \frac{1}{4\pi}.\] The seller, realizing this, will sell the car iff 
+    \[\theta \leq \frac{p}{\pi}\implies \theta \leq \frac{1}{4\pi^2} = \frac{1}{(2\pi)^2} \leq \frac{1}{2\pi} \leq 1.\]
+
+    Doing this infinitely, we see that the car will be sold iff 
+    \[\theta \leq \frac{1}{(2\pi)^n}\to 0.\] Thus, the seller will sell iff $\theta = 0$ and the buyer will buy iff $p = 0.$ There is no market!
+\end{exmp}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
