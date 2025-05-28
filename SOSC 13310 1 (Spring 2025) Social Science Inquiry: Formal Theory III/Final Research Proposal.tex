@@ -1,0 +1,293 @@
+
+\documentclass[openany, amssymb, psamsfonts]{amsart}
+\usepackage{mathrsfs,comment}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{istgame}
+\usepackage{bbm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{thmtools}
+\usepackage[all,arc,2cell]{xy}
+\UseAllTwocells
+\usepackage{enumerate}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+\newcommand{\Var}{\text{Var}}
+
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\makeatother
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{The War on Drugs}
+
+\author{AgustÍn Esteva}
+
+\date{AUGUST 28, 2024}
+
+\begin{document}
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+
+\section{Motivation and Introduction}
+In each period, a crime against a dictator will occur. The following game happens in each period:
+\begin{itemize}
+\item Dictator $D$ has chance to punish a crime, $p^{(t)} \in \{0,1\}.$ 
+\item If $p^{(t)} = 1,$ then the crime will be martyred and everyone rebels the dictator is overthrown with probability $1-\theta.$ If $p^{(t)} = 0,$ people in the population $i \in [0,1]$ can choose to rebel $a_i = 1$ or not  $a_i = 0$ in a global game after seeing this punishment. The payoffs for each individual are given by  \begin{table}[H]
+            \centering
+        \begin{tabular}{c|c|c}
+             & Win & Lose\\
+             \hline
+             $a_i = 1$ & $r -c$ & $-c$ \\
+             \hline
+             $a_i = 0$ &  $r$& $0$\\
+        \end{tabular}
+        \caption{}
+    \end{table}
+
+\item When $p = 0,$ The rebellion succeeds iff 
+\[\int_0^1 a_i di \geq \theta,\] where $\theta \in [0,1]$ is the strength of the dictator. $\theta$ is private to the dictator, but has a uniform prior $\theta \sim \text{Uniform}(0,1).$
+People have a belief
+\[\bbP\{\theta \mid \mathcal{F}_t\} =:\mu_t(\theta)\]
+
+Each person in the population will receive a signal about the strength of the dictator, 
+\[s_i^{(t)} = \theta + \varepsilon_i^{(t)},\] where $\varepsilon_i^{(1)}$ is drawn from some cdf $F_{(t)}.$ We have showed in class that the rebellion will succeed if and only if 
+\[\theta \leq 1 - \frac{c}{r} = \theta*_{(1)}\] and soldiers will fight if and only if 
+\[s_i \leq = k^{(1)} = 1 - \frac{c}{r} + F_{(1)}(1 - \frac{c}{r})\]
+\item The villagers receive better signals about the weakness of $D$ the more the dictator decides to spare the crime. That is, the more $D$ does $p_k = 0,$ the lower $s_i^{(t)}$ will be.
+\end{itemize}
+
+
+\end{document}
+
+
+
+
+
+
+
+

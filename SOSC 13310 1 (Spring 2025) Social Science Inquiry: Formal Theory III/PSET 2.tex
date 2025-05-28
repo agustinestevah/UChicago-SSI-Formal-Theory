@@ -1,0 +1,428 @@
+\documentclass[11pt]{article}
+\usepackage{float}
+\usepackage{xcolor}
+    \usepackage{istgame}
+% NOTE: Add in the relevant information to the commands below; or, if you'll be using the same information frequently, add these commands at the top of paolo-pset.tex file. 
+\newcommand{\name}{Agustin Esteva}
+\newcommand{\email}{aesteva@uchicago.edu}
+\newcommand{\classnum}{13310}
+\newcommand{\subject}{SSI: Formal Theory III}
+\newcommand{\instructors}{Zhaotian Luo}
+\newcommand{\assignment}{Problem Set 2}
+\newcommand{\semester}{Spring 2025}
+\newcommand{\duedate}{07-05-25}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+\newcommand{\Var}{\text{Var}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+\definecolor{payoffblue}{RGB}{200, 220, 255}
+\definecolor{payoffpink}{RGB}{255, 0, 128}
+\definecolor{purple}{RGB}{200, 180, 255}
+
+
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+% NOTE: Defining collaborators is optional; to not list collaborators, comment out the line below.
+%\newcommand{\collaborators}{Alyssa P. Hacker (\texttt{aphacker}), Ben Bitdiddle (\texttt{bitdiddle})}
+
+\input{paolo-pset.tex}
+
+% NOTE: To compile a version of this pset without problems, solutions, or reflections, uncomment the relevant line below.
+
+%\excludeversion{problem}
+%\excludeversion{solution}
+%\excludeversion{reflection}
+
+\begin{document}	
+	
+	% Use the \psetheader command at the beginning of a pset. 
+	\psetheader
+\section*{Problem 1}
+
+\section*{Question 1 (8 points)}
+
+Suppose in the ``treason" game:
+\begin{enumerate}
+    \item G2 observes $\theta$ and decides whether to kill the captain, $k = 0, 1$;
+    \item G1 observes $k$ and decides whether to attack;
+    \item G2 observes G1’s action and decides whether to attack.
+\end{enumerate}
+
+Assume $\Pr(\theta = 1) = \mu > 1 - c$.
+
+Consider the following belief of G1:
+\begin{align}
+    \beta_1(\theta = 1 \mid k = 0) = \mu, \quad
+\beta_1(\theta = 1 \mid k = 1) = \mu - x,
+\end{align}
+
+where $x \in (0, \mu)$. That is, G1 does not update after observing that G2 has spared the captain, while G1 becomes a bit more confident about G2’s loyalty when G2 has killed the captain.
+
+\begin{enumerate}[label=1.\arabic*.]
+    \item (2 points) What would type $\theta = 0$ of G2 do in each information set given G2’s initial decision on whether to kill the captain and G1’s action? What about type $\theta = 1$ of G2?
+\begin{solution}
+This situation can be modeleded by the following tree, where blue is the loyal general $(\theta = 0)$ and pink is the treasonous general $(\theta = 1)$ and purple is both.
+
+\begin{istgame}
+\xtdistance{15mm}{35mm}  % increased both horizontal and vertical distances
+\xtShowTerminalNodes[oval node]
+
+\istroot(0){G2}
+    \istb{$k=1$}[al]
+    \istb{}[bl]  % better spacer
+    \istb{$k=0$}[ar]
+\endist
+
+% First G1 node under k=1
+\istroot(1a)(0-1){G1}[plain node]
+    \istb{a}[al]
+    \istb{r}[ar]
+\endist
+
+% Second G1 node under k=0
+\istroot(1b)(0-3){G1}[plain node]
+    \istb{a}[al]
+    \istb{r}[ar]
+\endist
+
+% G2 nodes under first G1's 'a' and 'r'
+\xtdistance{15mm}{18mm}  % adjust for lower levels
+\istroot(2a)(1a-1){G2}
+    \istbt{a}[al]{\shortstack{$1 - c$\\\boxed{\colorbox{payoffblue}{$1 - c - d$}}}}
+    \istbt{r}[ar]{\shortstack{$- c$\\\boxed{\colorbox{payoffpink}{$\theta b - d$}}}}
+\endist
+
+\istroot(2b)(1a-2){G2}
+    \istbt{a}[al]{\shortstack{$0$\\
+    $ -c-d$}}
+    \istbt{r}[ar]
+    {\shortstack{$0$\\\boxed{\colorbox{purple}{
+    $ \frac{\theta}{2}b - d$}}}}
+\endist
+
+% G2 nodes under second G1's 'a' and 'r'
+\istroot(2c)(1b-1){G2}
+    \istbt{a}[al]{\shortstack{$1-c$\\
+    \boxed{\colorbox{payoffblue}{$ 1-c$}}}}
+    \istbt{r}[ar]{\shortstack{$-c$\\
+    \boxed{\colorbox{payoffpink}{$\theta b$}}}}
+\endist
+
+\istroot(2d)(1b-2){G2}
+    \istbt{a}[al] {\shortstack{$0$\\
+    $ -c$}}
+    \istbt{r}[ar] {\shortstack{$0$\\
+    \boxed{\colorbox{purple}{$ \frac{\theta}{2}b$}}}}
+\endist
+\end{istgame}
+
+The reasoning for this solution is given by Table 1 below (sorry that it is out of the green solution box, I couldn't figure out the formatting in latex)
+\end{solution}
+\begin{table} [H] 
+\centering\begin{tabular}{|c|c|c|c|c|} \hline 
+         $\theta$&  $k$&  G1&  G2& Reason (Compare payoffs)\\ \hline 
+         0&  1&  a&  a& $1-c-d > -d$\\ \hline 
+         0&  1&  r&  r& $-d>-c-d$\\ \hline 
+         0&  0&  a&  a& $1-c >0$\\ \hline 
+         0&  0&  r&  r& $0>-c$\\ \hline 
+         1&  1&  a&  r& $b-d >1-c-d$\\ \hline 
+ 1& 1& r& r&$-d>-c-d$\\ \hline 
+ 1& 0& a& r&$b>1-c$\\ \hline 
+ 1& 0& r& r&$\frac{b}{2} >-c$\\ \hline\end{tabular}
+    \caption{Explaining the tree, the rightmost column compares the expected payoffs, with the payoff on the left being whatever is in G2 and the payoff on the right inequality the action not in the column.}
+\end{table}
+
+    
+    \item (2 points) What would G1 do in each information set given G2’s initial decision on whether to kill the captain and the belief specified in (1)?
+    \begin{solution}
+Suppose $G2$ kills the captain $(k=1).$ By part a, $G2$ will retreat if $G1$ retreats and the will attack iff we attack and they are loyal. Thus
+
+The expected payoff of $G_1$ attacking is given by 
+\[\bbE[a \mid k=1 ] = (1-c)\bbP\{\theta = 0 \mid k=1\} + (-c)\bbP\{\theta = 1 \mid k =1\} = (1-c)(1- (\mu - x)) + (-c)(\mu - x)\]
+The expected payoff of $G_1$ retreating is obviously given by 
+\[\bbE[r \mid k = 1] = 0.\] Thus, $G1$ will attack if and only if 
+\[(1-c)(1- (\mu - x)) + (-c)(\mu - x) \geq 0 \iff c \leq 1 - (\mu -x),\]
+
+Now suppose $k = 0.$ Then the expected payoff of $G1$ attacking is given by 
+\[\bbE[a \mid k  = 0] = (1-c)\bbP\{\theta = 0 \mid k =0\} + (-c)\bbP\{\theta = 1 \mid k= 0\} = (1-c)(1-\mu) + (-c)\mu.\] Similarly, 
+\[\bbE[r \mid k = 0] = 0.\] Thus, $G1$ will attack if and only if 
+\[(1-c)(1-\mu) + (-c)\mu  \geq 0\iff c\leq 1 - \mu,\] which never holds from the conditions given. Thus, $G1$ will retreat always if $k = 0.$
+
+Summarizing:
+\[\boxed{k = 0: G1 \text{ retreats unconditionally}}\]
+\[\boxed{k = 1: G1 \text{ attacks iff } c\leq 1-(\mu - x)}\]
+    \end{solution}
+    
+    \item (2 points) Would type $\theta = 0$ of G2 kill the captain? What about the type $\theta = 1$ of G2?
+\begin{solution}
+There is no probability in this problem, as the expected payoffs of $G2$ given below are determined solely by work in the previous problem. For example, if we follow the tree left, then $c\leq 1 - (\mu - x),$ and $k=1,$ and so by part 2, we know that $G1$ attacks and by part 1, a treasonous general retreats with a payoff of $b-d$ and a loyal attacks with a payoff of $1-c-d.$
+\[
+\begin{istgame}
+\xtdistance{15mm}{35mm}  % increased both horizontal and vertical distances
+\xtShowTerminalNodes[oval node]
+
+\istroot(0){x}
+    \istb{c\leq 1-(\mu - x)}[al]
+    \istb{}[bl]  % spacer
+    \istb{c > 1- (\mu - x)}[ar]
+\endist
+
+% First G2 node under left condition
+\istroot(1a)(0-1){G2}[plain node]
+    \istb{k=1}[al]
+    \istb{k=0}[ar]
+\endist
+
+% Second G2 node under right condition
+\istroot(1b)(0-3){G2}[plain node]
+    \istb{k=1}[al]
+    \istb{k=0}[ar]
+\endist
+
+% G1 nodes under k=1 (left branch)
+\xtdistance{15mm}{18mm}  % adjust for lower levels
+\istroot(2a)(1a-1){G1}
+    \istbt{a}[al]
+\endist
+
+\istroot(2b)(1a-2){G1}
+    \istbt{r}[al]
+\endist
+
+% G1 nodes under k=0 (right branches)
+\istroot(2c)(1b-1){G1}
+    \istbt{r}[al]
+\endist
+
+\istroot(2d)(1b-2){G2}
+    \istbt{r}[al]
+\endist
+
+% Add G2 decision nodes at the end of every branch
+\xtdistance{10mm}{15mm}  % adjust for the final level
+
+% For the 'a' branch (2a)
+\istroot(3a)(2a-1){G2}
+    \istb{\theta=1}[al] {b-d}
+    \istb{\theta=0}[ar] {1-c-d}
+\endist
+
+% For the first 'r' branch (2b)
+\istroot(3b)(2b-1){G2}
+    \istb{\theta=1}[al] {\frac{b}{2}}
+    \istb{\theta=0}[ar] {0}
+\endist
+
+% For the second 'r' branch (2c)
+\istroot(3c)(2c-1){G2}
+    \istb{\theta=1}[al] {\frac{b}{2} - d}
+    \istb{\theta=0}[ar] {-d}
+\endist
+
+% For the third 'r' branch (2d)
+\istroot(3d)(2d-1){G2}
+    \istb{\theta=1}[al] {\frac{b}{2}}
+    \istb{\theta=0}[ar] {0}
+\endist
+
+\end{istgame}\]
+
+Thus, when $c\leq 1-(\mu - x)$: the evil general will kill the captain if and only if
+\[b-d \geq \frac{b}{2} \iff \frac{b}{2}\geq d,\] the good general will kill the captain if and only if 
+\[1-c-d \geq 0 \iff 1-c \geq d\]
+
+
+When $c\leq 1-(\mu - x),$ the evil general will kill the captain if and only if 
+\[\frac{b}{2} - d \geq \frac{b}{2} \iff -d \geq 0,\] which is never true. The good general will similarly never kill the general for the same reason.
+
+Summarizing:
+\[\boxed{c\leq 1-(\mu - x), \theta = 1: G2 \text{ kills captain} \iff \frac{b}{2} \geq d}\]
+\[\boxed{c\leq 1-(\mu - x), \theta = 0: G2 \text{ kills captain} \iff 1-c \geq d}\]
+\[\boxed{c> 1-(\mu - x), \theta = 1: G2 \text{ spares captain unconditionally}}\]
+\[\boxed{c> 1-(\mu - x), \theta = 0: G2 \text{ spares captain unconditionally}}\]
+
+\end{solution}
+
+    \item (2 points) Derive the consistent belief of G1 given the strategy profile you have derived from 1.1 to 1.3. Is the belief in (1) consistent with this strategy profile?
+\end{enumerate}
+\begin{solution}
+    We denote $\beta_1'$ to be the belief  of $G_1$ derived from our strategy. Then using Bayes' rule:
+    \begin{align*}
+     \beta_1'(\theta = 1 \mid k = 0) &= \frac{\bbP\{k=0 \mid \theta = 1\}\bbP\{\theta = 1\}}{\bbP\{k=0\}}\\ &= \frac{\bbP\{k=0 \mid \theta = 1\}\mu}{\bbP\{k=0 \mid \theta = 1\}\mu + \bbP\{k=0 \mid \theta = 0\}(1-\mu)}\\& =: \frac{P_1 \mu}{P_1\mu + P_0(1-\mu)}    
+    \end{align*}
+    To calculate $P_1,$ we note that if $\theta = 1,$ question 1.3 tells us that $k= 0$ if and only if $c > 1- (\mu -x).$ Thus, 
+    \[P_1 = \bbP\{k = 0 \mid \theta = 1\} = \bbP\{c> 1- (\mu - x)\}\] Similarly, the good general spares the captain if and only if $c > 1- (\mu - x).$ Thus,
+    \[P_0 = \bbP\{k = 0 \mid \theta = 0\} = \bbP\{c > 1- (\mu - x)\}\] 
+    Hence, $P_0 = P_1$ and so 
+    \[\beta_1'(\theta = 1 \mid k = 0)= \frac{P_1 \mu}{P_1\mu  + P_1(1-\mu)}= \mu = \beta_1(\theta= 1 \mid k= 0).\]
+
+    For the other belief, we have again use 1.3 to show that
+    \begin{align*}
+    \beta_1'(\theta = 1 \mid k= 1)& = \frac{\bbP\{k = 1\mid \theta = 1\}\bbP\{\theta=1\}}{\bbP\{k = 1\mid \theta = 1\}\bbP\{\theta=1\} + \bbP\{k = 1\mid \theta = 0\}\bbP\{\theta=0\}}\\
+    &= \frac{\bbP\{k = 1\mid \theta = 1\}\mu}{\bbP\{k = 1\mid \theta = 1\}\mu + \bbP\{k = 1\mid \theta = 0\}(1-\mu)}\\
+    &=\frac{\bbP\{c\leq 1- (\mu - x), d\leq \frac{b}{2}\}\mu}{\bbP\{c\leq 1- (\mu - x), d\leq \frac{b}{2}\}\mu + \bbP\{c \leq 1 - (\mu - x), 1 - c\geq d\}(1-\mu)}\\
+    &= \frac{\bbP\{c\leq 1- (\mu - x)\} \bbP\{d\leq \frac{b}{2}\}\mu}{\bbP\{c\leq 1- (\mu - x)\}\bbP\{d\leq \frac{b}{2}\}\mu + \bbP\{c \leq 1 - (\mu - x), 1 - c\geq d\}(1-\mu)}\\
+    & \in \{0, 1,\mu, \text{indeterminate}\}
+    \end{align*}
+We provide examples of cases for which the solutions above work.
+When $c> 1- (\mu -x)$ and $1-c <d,$ then the probability of all of these events is $0,$ and thus the belief is yields an indeterminate form, and so we can arbitrarily assign it to be whatever we want. If we assign it to be $\mu -x,$ then the beliefs are consistent. However, in any of the following cases, the belief is not consistent. If $c\leq 1 - (\mu -x)$ and $d\leq \frac{b}{2}$ and $1-c \geq d,$ then all the probabilities above are $1,$ and thus the belief derived is $\mu.$ Since $x\neq 0,$ then $\mu - x\neq \mu$ for any $x,$ and so this belief is inconsistent. If $c\leq 1- (\mu - x)$ and $d> \frac{b}{2}$ and $1-c \geq d,$ then the numerator is $0$ and the denominator is not zero, and thus the belief is $0.$ But $\mu - x \neq 0$ since $x\in (0,\mu)$ and so this belief is inconsistent. When $c\leq 1- (\mu - x)$ and $d\leq \frac{b}{2}$ but $1-c <d,$ then the second term in the denominator is zero but everything else is $1,$ and so the whole fraction is $1.$ But we know that $\mu  -x \neq 1,$ and so this is inconsistent as well.   
+\end{solution}
+
+\newpage
+
+\section*{Question 2 (12 points)}
+
+You want to sell your used car, which has the quality $\theta \in [0,1]$, to a buyer. You know the quality of the car, but the buyer knows only that $\theta$ is uniformly distributed on $[0,1]$. 
+
+You offer a take-it-or-leave-it price $p$ to the buyer, who then chooses whether to buy or not. If the buyer buys the car, you get the payoff $p$ while the buyer gets $\theta - p$. If the buyer does not buy the car, both you and the buyer get the payoff 0.
+
+Now suppose that before you offer the price, you can choose whether to go to the DMV to purchase a certificate that reveals the quality of the car $\theta$ to the buyer. The cost of purchasing the certificate is $c \in \left(0, \frac{1}{2}\right)$. However, with probability $\varepsilon \in (0, 1)$, you have to finish a difficult game theory problem set that prevents you from getting the certificate. The buyer can only observe whether you have the certificate. If you do not have the certificate, the buyer has no idea whether you deliberately chose not to have one or were caught by the problem set.
+
+\begin{enumerate}[label=2.\arabic*.]
+    \item (2 points) The buyer either observes $\theta$ (when you have the certificate) or $\varnothing$ (when you do not). Let $\hat{\theta} := \mathbb{E}(\theta \mid \varnothing)$. What price are you going to charge when you have the certificate? What is the price when you do not have the certificate?
+\begin{solution}
+    Suppose we have the certificate. Then the buyer will observe $\theta.$ The buyer will buy the car iff 
+    \[\theta - p \geq 0 \iff \theta \geq p.\] Thus, we maximize our price and find that \[\boxed{p^* = \max p = \theta}\] 
+
+    Suppose we don't have the certificate. Then the buyer will buy the car iff 
+    \[\hat{\theta} - p \geq 0 \iff p \leq \hat{ \theta} \implies \boxed{p^* = \max p = \hat{\theta}}.\] 
+\end{solution}
+
+
+    \item (2 points) Suppose you do not have a difficult problem set to deal with. Then, when would you get the certificate and when would you not? Derive the condition in terms of $\theta$, $\hat{\theta}$, and $c$.
+\begin{solution}
+With the certificate,
+your payout is 
+\[\bbE[\text{certificate}] = \theta - c\] Without the certificate the expected payout is by definition
+\[\bbE[\text{no certificate}]= \hat{\theta}.\] Thus, the seller will get the certificate iff 
+\[\hat{\theta} \leq \theta - c \iff \boxed{\theta \geq \hat{\theta} + c}\]
+\end{solution}
+    \item (3 points) From the buyer’s perspective, what is the total probability that you would not have the certificate, $\Pr(\varnothing)$? Find $\Pr(\varnothing)$ as a function of $\hat{\theta}, c, \varepsilon$. Then, calculate $\mathbb{E}(\theta \mid \varnothing)$ as a function of $\hat{\theta}, c, \varepsilon$.
+\begin{solution}
+    Using the law of total probability, we see that since if we have a PSET, then we won't have a certificate (i.e, $\bbP\{\varnothing \mid \text{PSET}\} = 1$) and if we do not have a PSET, then by the previous proble, we will have no certificate if $\theta < \hat{\theta}+ c$ (i.e, $\bbP\{\varnothing \mid \text{No PSET\}} = \bbP\{\theta < \hat{\theta} + c\}$), then
+\begin{align*}
+    \bbP\{\varnothing\} &= \bbP\{\varnothing \mid \text{PSET}\}\bbP\{\text{PSET}\} + \bbP\{\varnothing \mid \text{No PSET\}}\bbP\{\text{No PSET}\}\\
+    &= \varepsilon + \bbP\{\theta < \hat{\theta} + c\}(1-\varepsilon)\\
+    &= \boxed{\varepsilon + \min\{(\hat{\theta} + c), 1\}(1-\varepsilon)}
+\end{align*}
+Then using the law of total expectation and the fact that $\bbE[X\mid Y] = \bbE[X]$ is independent, then noting that if there is no pset, the expectation of $\theta$ may be truncated to note that $\theta < \hat{\theta}  + c$ now, then by using properties of the uniform distribution, we see that
+\begin{align*}
+    \bbE[\theta \mid \varnothing] &= \bbE[\bbE[\theta \mid \varnothing) \mid \text{PSET?}]]\\
+    &= \bbE[\bbE[\theta \mid \varnothing, \text{PSET?}]]\\
+    &= \bbE[\theta \mid \text{PSET}]\bbP\{ \text{PSET} \mid \varnothing\} + \bbE[(\theta \mid \text{No PSET}]\bbP\{ \text{No PSET} \mid \varnothing\}\\
+    &= \bbE[\theta] \frac{\bbP\{\text{PSET}, \varnothing\}}{\bbP\{\varnothing\}} +\bbE[(\theta \mid \text{No PSET}]\frac{\bbP\{\text{No PSET}, \varnothing\}}{\bbP\{\varnothing\}}\\
+    &= \frac{1}{2}\frac{\bbP\{\varnothing \mid \text{PSET}\}\bbP\{\text{PSET}\}}{\bbP\{\varnothing\}} + \frac{\min\{\hat{\theta} + c, 1\}}{2}\frac{\bbP\{\varnothing \mid \text{No PSET}\}\bbP\{\text{No PSET}\}}{\bbP\{\varnothing\}}\\
+    &= \frac{1}{2}\frac{\varepsilon}{\varepsilon + \min\{(\hat{\theta} + c), 1\})(1-\varepsilon)} + \frac{\min\{\hat{\theta} + c, 1\}}{2} \frac{\bbP\{\theta < \hat{\theta} + c\}(1-\varepsilon)}{\varepsilon + (\min\{(\hat{\theta} + c), 1\})(1-\varepsilon)}\\
+    &= \boxed{\frac{1}{2}\frac{\epsilon + \min\{\hat{\theta} + c, 1\}^2 (1-\varepsilon)}{\varepsilon + \min\{(\hat{\theta} + c), 1\}(1-\varepsilon)}}
+\end{align*}
+\end{solution}
+
+    \item (3 points) Use the equation $\hat{\theta} = \mathbb{E}(\theta \mid \varnothing)$ to solve the equilibrium value of $\hat{\theta}$ as a function of $c, \varepsilon$. Use your answer to prove that $\Pr(\varnothing) < 1$, so that it is possible for you to ever get the certificate.
+\begin{solution}
+Suppose $\min\{\hat{\theta} + c , 1\} = \frac{1}{2}.$ Then clearly, 
+\[\hat{\theta}= \bbE[\theta \mid \varnothing] = 1.\] For the case when $\min\{\hat{\theta} + c , 1\} = \hat{\theta} + c,$ we solve $\hat{\theta} = \bbE[\theta \mid \varnothing]$ to see that (after substantial amount of algebra) we get the quadratic
+\[\hat{\theta}^2(1-\epsilon) + 2\hat{\theta}\epsilon - (\varepsilon  + (1- \varepsilon)c^2) = 0.\] Solving using the quadratic formula (the algebra is ommited for readability and my sanity),
+\[\hat{\theta} = \frac{-\varepsilon \pm \sqrt{\epsilon + c^2 -2\varepsilon c^2 + \varepsilon^2 c^2}}{1-\varepsilon}.\] Note that we must take the positive root since the price should be positive. Thus,
+\[\boxed{\hat{\theta} = p = \min\{\frac{-\varepsilon \pm \sqrt{\epsilon + c^2 -2\varepsilon c^2 + \varepsilon^2 c^2}}{1-\varepsilon}, \frac{1}{2}\}}.\] Consider that since $c < \frac{1}{2}$ and $\hat{\theta} \leq \frac{1}{2}$ by the above, we have that $\hat{\theta} + c \leq \frac{1}{2} + c < 1.$ Thus, 
+\[\bbP\{\varnothing\} = \varepsilon+ \min\{\hat{\theta} + c, 1\}(1-\varepsilon) \leq \varepsilon + (\hat{\theta} + c)(1-\varepsilon) < \varepsilon + (1-\varepsilon) = 1\]
+\end{solution}
+
+    \item (2 points) Suppose $c = \frac{1}{4}$. Draw a plot with $\varepsilon$ on the x-axis and $\hat{\theta}$ (when $c = \frac{1}{4}$) on the y-axis. Then, comment on how the probability of being caught by a difficult problem set $\varepsilon$ affects $\hat{\theta}$. Compare this with what we had in class (Slides: Mechanism Design p.9).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/k3uirhgu9ehr.png}
+    \caption{$\hat{\theta}$ vs $\varepsilon$}
+\end{figure}
+    \begin{solution}
+By the plot above, it is clear that the higher the probability of getting caught by a PSET, the higher $\hat{\theta}$ will be, and thus the higher the price of the used car is.  We compare this to what we had in class, which stated that if $c = \frac{1}{4},$ then the price would be $\frac{1}{4}.$ Thus, the chance of a pset increases the price of a car. We see that if $\varepsilon = 0,$ we regain the solution from class (from the graph, $\hat{\theta} = \frac{1   }{4} = c$ if $\varepsilon = 0$), which is a good sign for my grade. We also note that the price of the car never exceeds $\frac{1}{2},$ no matter the value of $\varepsilon.$
+    \end{solution}
+\end{enumerate}
+
+\end{document}

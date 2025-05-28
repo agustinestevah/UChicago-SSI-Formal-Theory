@@ -94,7 +94,7 @@ Note that in truth values, $\Delta(\Theta) = [0,1]$ and $\Delta([0,1]) = \{F \te
 \end{rem}
 
 \newpage
-\subsection{Monday: Mar 31: Bayesian Analysis and Dark Forest Theory}
+\subsection{Monday, Mar 31: Bayesian Analysis and Dark Forest Theory}
 \begin{exmp}
     Suppose $\theta$ is Trump's true popularity. Let the signal/results $s \in \{0,1\}$ represent whether Trump has won the election.
 
@@ -524,6 +524,113 @@ Suppose the quality of a used car is a hidden type $\theta \sim U[0,1].$ Payoffs
 
     Doing this infinitely, we see that the car will be sold iff 
     \[\theta \leq \frac{1}{(2\pi)^n}\to 0.\] Thus, the seller will sell iff $\theta = 0$ and the buyer will buy iff $p = 0.$ There is no market!
+\end{exmp}
+
+
+\newpage
+\subsection{Monday, Apr 24: Principal-Agent Problem}
+Situation:
+\begin{itemize}
+    \item A \textit{principle} wants an outcome, to maximize effort of agent (extraction) and minimize payment to agent (transfer)
+    \item A population of \textit{agent} take action to realize outcome. Each agent exerts effort $e \geq 0$ (which benefits the principal) at the cost of $\frac{e^2}{2\theta},$ where $\theta >0.$
+    \item The principle and agent have different interests.
+    \item \textbf{How does the principle motivate the agent?}
+    \item Let the contract be 
+    \[M:= \{(e,w) : e\geq 0, w \geq 0\},\] where each $(e,w)$ is a term, where the agent exerts effort of $e$ and gets paid $w$ and gets paid $0$ if he exerts $e = 0.$ 
+\end{itemize}
+The sequence: 
+\begin{enumerate}
+    \item Principal offers contract $M,$
+    \item Agent chooses a term $(e, w) \in M$,
+    \item The chosen terms $(e,w)$ are implemented.
+\end{enumerate}
+The principal has a payoff of $e-w$ and the agent has a payoff of $w - \frac{e^2}{2\theta},$ where 
+\[\theta \in \{\theta_H, \theta_L\}, \quad \theta_H > \theta_L >0,\] where $\theta_H$ is a high efficiency type, $\theta_L$ is a low efficiency type, and 
+\[\bbP\{\theta = \theta_H\} = \mu \in (0,1)\]
+\begin{exmp}
+    (First-best wage) Suppose principal knows $\theta.$ If the principal wants the agent to exert $e,$ he will pay $w_\theta = \frac{e^2}{2\theta}.$ Thus, the principal will make his contract based on 
+    \[\max_{e \geq 0}\{e - \frac{e^2}{\theta}\} \implies e^+ = \theta , \, w^+_\theta = \frac{\theta}{2}\]
+\end{exmp}
+
+\begin{exmp}
+    (Adverse Selection) Suppose principal does not know $\theta.$ Suppose the principal offers 
+    \[M = \{(e_L^+, w_L^+), (e_H^+, w_H^+)\}.\] Agent $\theta_H$ get $0$ if he chooses $(e_H^+, w_H^+),$ and he gets 
+    \[W_L^+ - \frac{e_L^{+2}}{2\theta_H} > W_L^+ - \frac{e_L^{+2}}{2\theta_L} = 0.\] By choosing $(e_L^+, w_L^+).$
+\end{exmp}
+
+\begin{exmp}
+    (Single Crossing) For any $\theta,$ if the difference in payoffs between two contracts is monotone in $\theta,$ then for agent $\theta_L,$ choosing contract is better than  nothing and choosing $(e_L, w_L)$ is better than $(e_H, w_H):$
+    \[w_L - \frac{e^2_L}{2\theta_L} \geq 0 \qquad \text{ IRL}\]
+    \[w_L - \frac{e^2_L}{2\theta_L} \geq w_H - \frac{e^2_H}{2\theta_L}\qquad \text{ ICL}\] And similarly for $\theta_H$ (IRH and ICH). Thus,  putting together the inequalities:
+    \[\frac{e_H^2 - e_L^2}{2\theta_H} \leq w_H - w_L, \qquad \frac{e_H^2 - e_L^2}{2\theta_L} \geq w_H - w_L\] and so 
+    \[\left(\frac{1}{2\theta_L} - \frac{1}{2\theta_H}\right)(e_H^2 - e_L^2) \geq 0 \implies e_H \geq e_L\]
+
+    Principal thus faces optimization:
+    \[\max_{M}\{(1-\mu)(e_L - e_H) + \mu(e_H - e_L)\}\]
+
+    Solving:
+    \begin{align*}
+        w_L &= \frac{e_L^2}{2\theta_L}\\
+        w_H &= \frac{e_H^2}{2\theta_H}  + (1-\frac{\theta_L}{\theta_H})\frac{e_L^2}{2\theta_L}\\
+        e_H &= \theta_H\\
+        e_L &= \frac{1 - \mu}{1 - \frac{\theta_L}{\theta_H}\mu}
+    \end{align*}
+
+\subsection{Monday, May 12: Bayesian Persuasion}
+Suppose a judge or jury has to choose to convict a suspect. A prosecutor wants to convict the suspect. A trial would happen in which the prosecutor presents evidence and the judge convicts or acquits. 
+
+The game:
+\begin{itemize}
+    \item Nobody knows whether the suspect is guilty or innocent. $\theta \in \{0,1\},$ where $\theta = 1$ is guilty and $\bbP\{\theta = 1\} = \mu.$
+    \item The judges payoff:
+        \begin{table}[H]
+            \centering
+        \begin{tabular}{c|c|c}
+             & $\theta = 0$ & $\theta = 1$\\
+             \hline
+             Acquit & $0$ & $-1$ \\
+             \hline
+             Convict &  $-1$& $0$\\
+        \end{tabular}
+        \caption{}
+    \end{table}
+    \item Without any information, the judge prefers to convict iff 
+    $-(1-\mu) \geq \mu \iff \mu \geq \frac{1}{2}.$ Thus, we assume that $\mu < \frac{1}{2}.$
+    \item The prosecutor will present evidence in the trial with $s = 0,1.$ Where $s = 1$ indicates evidence for the crime.
+    \item The prosecutor cannot decide whether there is evidence or not, but they can choose an investigation procedure, where each procedure generates evidence (or lack of) conditioned on the suspects guilt/innocence. Each is characterized by $(\pi_0, \pi_1),$ where 
+    \[\pi_\theta = \bbP\{s = 1 \mid \theta\}.\] We suppose WLOG that $\pi_0 \leq \pi_1.$
+    \item The procedure is the following test: 
+        \begin{table}[H]
+            \centering
+        \begin{tabular}{c|c|c}
+             & $\theta = 0$ & $\theta = 1$\\
+             \hline
+             $s = 0$ & $1 - \pi_0$ & $1 - \pi_1$ \\
+             \hline
+             $s= 1$ &  $\pi_0$& $\pi_1$\\
+        \end{tabular}
+        \caption{}
+    \end{table}
+    \item $\pi_1 = \pi_0 = \frac{1}{2}$ is uninformative, and $\pi_1 = 1, \pi_0 = 0$ is the most informative. In the latter case, the probability of conviction is $\mu.$ How can the prosecutor do better?
+\end{itemize}
+Suppose the posterior of the judge is $P = \bbP\{\theta \mid s\}.$ Then the judge convicts iff $P \geq \frac{1}{2}$ When there is no evidence, the posterior is 
+\[P = \frac{\mu}{\mu + (1-\mu)\frac{1 - \pi_0}{1 - \pi_1}}\leq \mu < \frac{1}{2},\] and so the judge acquits. Thus, we need there to be evidence, in which case the posterior is
+\[P = \frac{\mu}{\mu + (1-\mu)\frac{\pi_0}{\pi_1}} \geq \frac{1}{2} \iff \pi_0 \leq \frac{\mu}{1-\mu}\pi_1 < (1)\pi_1\]
+
+
+\end{exmp}
+
+\newpage
+\subsection{Wednesday, May 14: Election Manipulation}
+\begin{exmp}
+    \begin{itemize}
+        \item Suppose an incumbent and opposition are competing for office, where the more popular politician wins the conflict. 
+        \item Suppose this is a two stage game, in which $I$ can choose to stay or leave, if he stays $O$ can choose to accept or challenge.
+        \item Let $\theta = 1$ if $I$ has more power, $\theta = 0$ if $O$ has more power. Suppose $\bbP\{\theta = 1\} = \frac{1}{2}.$ S 
+        \item Payoffs are not interesting unless they fight, in which case payoffs are given by
+        \[U_I = \theta - c, \qquad U_O = (1 - \theta) - c,\] where $c< \frac{1}{2}$ is the cost to fight.
+    \end{itemize}
+    It can easily be shown that the unique PBE is stay and challenge, and thus there will always be fighting.
 \end{exmp}
 
 
